@@ -22,6 +22,7 @@ app.use(
   })
 );
 app.use(cookieParser());
+app.use("/upload", express.static("frontend/public/upload"));
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
