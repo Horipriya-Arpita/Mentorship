@@ -43,6 +43,7 @@ import { UserDetails } from "../../components/user_details/UserDetails"
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 import { UserContacts } from "../../components/user_contacts/UserContacts";
+import { SkillSet } from "../../components/skillSet/SkillSet";
 
 
 const Home = () => {
@@ -53,6 +54,7 @@ const Home = () => {
       <h1>Welcome to Home Page {currentUser.name}</h1>
       
       <UserDetails />
+      <SkillSet />
     </div>
   );
 }

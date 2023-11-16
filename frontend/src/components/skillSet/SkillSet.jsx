@@ -1,13 +1,13 @@
-import "./user_details.scss";
+import "./skillSet.scss";
 import { useQuery } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 
-export const UserDetails = () => {
+export const SkillSet = () => {
   const { isLoading, error, data } = useQuery({
-    queryKey: ["user_details"],
+    queryKey: ["skill_set"],
     queryFn: () =>
-      makeRequest.get("/user_details").then((res) => {
-        return res.data;
+      makeRequest.get("/skill_set").then((res) => {
+        return res.data; // Update this line
       }),
   });
 
@@ -22,18 +22,15 @@ export const UserDetails = () => {
   }
 
   return (
-    <div className="user_details">
+    <div className="skill_set">
       {data && (
         <div>
-          <h2>User Details</h2>
-          <p>User ID: {data[0].userId}</p>
-          <p>Name: {data[0].name}</p>
-          <p>Gender: {data[0].gender}</p>
-          
+          <h2>Skill-set </h2>
+          {/* Render user details based on the 'data' */}
         </div>
       )}
     </div>
   );
 };
 
-export default UserDetails;
+export default SkillSet;
