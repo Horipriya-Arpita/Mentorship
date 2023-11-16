@@ -1,7 +1,7 @@
 import React from 'react';
 import './profileFlexbox.scss'
 
-const UserFlexBox = ({ user }) => {
+export const ProfileFlexbox = ({ user }) => {
   const { image, name, skillset, workExperience } = user;
 
   const handleProfileDetails = () => {
@@ -32,4 +32,4 @@ const UserFlexBox = ({ user }) => {
   );
 };
 
-export default UserFlexBox;
+export default ProfileFlexbox;
