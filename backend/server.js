@@ -4,6 +4,7 @@ import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import userDetailsRoutes from "./routes/user_details.js"
 import skillSetRoutes from "./routes/skills.js"
+import userContactRoutes from "./routes/user_contacts.js"
 import cors from "cors";
 import multer from "multer";
 import cookieParser from "cookie-parser";
@@ -32,11 +33,16 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+app.post("/api/upload", upload.single("file"), (req, res) => {
+  const file = req.file;
+  res.status(200).json(file.filename);
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/user_details",userDetailsRoutes);
 app.use("/api/skill_set", skillSetRoutes);
-
+app.use("/api/user_contacts", userContactRoutes);
 
 app.listen(8800, () => {
   console.log("API working!");
