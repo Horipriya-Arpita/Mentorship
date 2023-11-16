@@ -88,11 +88,36 @@
       box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
   
       .Bio {
-        // ... (existing styles)
+        color: #333;
+        // Add any additional styles as needed
       }
-  
+      
       .Additional-Info {
-        // ... (existing styles)
+        // Add any existing styles you want to retain
+        
+        h2 {
+          color: #333;
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+        }
+      
+        ul {
+          list-style-type: none;
+          padding: 0;
+      
+          li {
+            strong {
+              display: inline-block;
+              margin-bottom: 5px;
+              color: #333;
+            }
+      
+            span {
+              color: #666;
+              font-size: 1rem;
+            }
+          }
+        }
       }
   
       .Skill-set {
@@ -210,7 +235,7 @@
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 750px; // Updated width to 1.5 times
+    width: 1200px; // Updated width to 1.5 times
     background-color: white;
     padding: 20px;
     max-height: 80vh;
@@ -317,25 +342,32 @@
     /* Add styling for the ExperienceForm */
     .experience-form {
       padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
+
+  .form-group {
+    display: flex;
+    flex-wrap: wrap; // Allow items to wrap to the next line
+    align-items: center;
+    margin-bottom: 10px;
+
+    label {
+      width: 150px; // Adjust the width as needed
+      margin-right: 10px; // Add margin for spacing between label and input
+    }
+
+    input,
+    select,
+    textarea {
+      flex: 1; // Take up the remaining space
+      padding: 8px;
+      margin-bottom: 10px;
       border: 1px solid #ccc;
-      border-radius: 10px;
-      margin-bottom: 20px;
-  
-      label {
-        display: block;
-        margin-bottom: 10px;
-      }
-  
-      input,
-      select,
-      textarea {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-      }
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+  }
   
       button {
         background-color: #4caf50;
