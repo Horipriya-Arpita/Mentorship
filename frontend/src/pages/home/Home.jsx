@@ -55,6 +55,7 @@ const Home = () => {
       
       <UserDetails />
       <SkillSet />
+      <UserContacts />
     </div>
   );
 }

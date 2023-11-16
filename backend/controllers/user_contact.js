@@ -11,7 +11,7 @@ export const getUserContacts = (req, res) => {
   jwt.verify(token, "secretkey", (err, userInfo) => {
     if (err) return res.status(403).json("Token is not valid!");
 
-    const q = `SELECT * FROM userContacts WHERE userID = ?`; // Query to fetch userContacts
+    const q = `SELECT * FROM usercontacts WHERE userID = ?`; // Query to fetch userContacts
 
     const values = [userId || userInfo.id]; // Use userId from query parameter or userInfo.id from token
 
