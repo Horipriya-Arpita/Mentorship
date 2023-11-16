@@ -5,6 +5,7 @@ import userRoutes from "./routes/users.js";
 import userDetailsRoutes from "./routes/user_details.js"
 import skillSetRoutes from "./routes/skills.js"
 import cors from "cors";
+import multer from "multer";
 import cookieParser from "cookie-parser";
 
 //middlewares
@@ -20,6 +21,16 @@ app.use(
 );
 app.use(cookieParser());
 
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "../frontend/public/upload");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
