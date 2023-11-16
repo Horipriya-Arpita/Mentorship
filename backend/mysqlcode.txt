@@ -1,0 +1,49 @@
+-- Create the 'mentorship' database
+CREATE DATABASE IF NOT EXISTS mentorship;
+
+-- Switch to the 'mentorship' database
+USE mentorship;
+
+-- Create the 'users' table
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS user_details (
+    id INT PRIMARY KEY,
+    user_type VARCHAR(50) NOT NULL,
+    gender VARCHAR(10),
+    bio TEXT,
+    country VARCHAR(50),
+    language VARCHAR(50),
+    cover_pic VARCHAR(255),
+    profile_pic VARCHAR(255),
+    FOREIGN KEY (userid) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+INSERT INTO user_details (id, user_type, gender, bio, country, language, cover_pic, profile_pic)
+VALUES
+    (1, 'Mentor', 'Male', 'Experienced mentor in various fields', 'USA', 'English', 'mentor_cover.jpg', 'mentor_profile.jpg');
+
+
+-- Create the 'skill_set' table
+CREATE TABLE IF NOT EXISTS skill_set (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    userid INT,
+    skill_name VARCHAR(255) NOT NULL,
+    skill_level INT,
+    FOREIGN KEY (userid) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+
+-- Insert data into 'skill_set' table
+INSERT INTO skill_set (userid, skill_name, skill_level)
+VALUES
+    (1, 'Programming', 5),
+    (1, 'Design', 3),
+    (2, 'Communication', 4);
+
