@@ -42,6 +42,7 @@ const ExperienceForm = () => {
   ]);
 
   const addWorkExperience = () => {
+    
     setWorkExperiences([
       ...workExperiences,
       { company: "", startDate: "", endDate: "" },
@@ -92,7 +93,10 @@ const ExperienceForm = () => {
       <div>
         <h3>Work Experience</h3>
         {workExperiences.map((experience, index) => (
+          
+
           <div key={index}>
+            <br></br>
             <label>
               Company:
               <input
@@ -126,6 +130,7 @@ const ExperienceForm = () => {
           </div>
         ))}
         <button type="button" onClick={addWorkExperience}>
+          <br />
           Add Work Experience
         </button>
       </div>
