@@ -47,3 +47,14 @@ VALUES
     (1, 'Design', 3),
     (2, 'Communication', 4);
 
+-- Creating Table userContacts for user contact infos -- 
+
+CREATE TABLE userContacts (
+    id INT PRIMARY KEY,
+    userLinkedin VARCHAR(255),
+    userFacebook VARCHAR(255),
+    userX VARCHAR(255),
+    userGithub VARCHAR(255),
+    userID INT NOT NULL,
+    FOREIGN KEY (userID) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE
+);

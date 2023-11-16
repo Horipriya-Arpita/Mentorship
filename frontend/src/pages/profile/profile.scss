@@ -1,4 +1,45 @@
 .profile {
+  .edit-profile {
+    background-color: #3498db; // Set default background color
+    color: #fff; // Set text color to white
+    padding: 10px 20px; // Adjust padding for better styling
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; // Add transition effect
+  
+    &:hover {
+      background-color: #2980b9; // Change background color on hover
+      color: #fff; // Change text color on hover
+    }
+  }
+
+  .project-card {
+    text-decoration: none;
+  }
+  
+  .project-box {
+    width: 800px; // Updated width to double
+    height: 70px; // Updated height to half
+    margin: 10px; // Added margin for spacing
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #3498db, #2c3e50); // Set default background to blue gradient
+    color: #fff; // Set text color to white
+    border: 1px solid #ddd; // Added border for separation
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease; // Add color transition
+  
+    &:hover {
+      background: #fff; // Change background to white on hover
+      color: #000; // Change text color to black on hover
+    }
+  
+    h3 {
+      margin: 0;
+    }
+  }
     .profile-container {
         -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
         -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
@@ -40,14 +81,108 @@
     }
   
     .detail-container {
-
-      background-color: antiquewhite;
-      margin-top: 10px;
-      padding: 10px 70px;
-      text-align: left;
+      background-color: #ffffff;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
   
       .Bio {
-        color: red;
+        // ... (existing styles)
+      }
+  
+      .Additional-Info {
+        // ... (existing styles)
+      }
+  
+      .Skill-set {
+        margin-top: 20px;
+  
+        h2 {
+          color: #333;
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+        }
+  
+        ul {
+          list-style-type: none;
+          padding: 0;
+  
+          li {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 8px 16px;
+            margin: 4px;
+            border-radius: 4px;
+            font-size: 1rem;
+          }
+        }
+  
+        .proficient-in {
+          margin-top: 20px;
+  
+          h2 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+          }
+  
+          ul {
+            list-style-type: none;
+            padding: 0;
+  
+            li {
+              display: flex;
+              align-items: center;
+              margin-bottom: 8px;
+  
+              &:before {
+                content: "⚡";
+                margin-right: 5px;
+                font-size: 1.2rem;
+                color: #f39c12; // Sunflower Yellow
+              }
+  
+              span {
+                margin-left: 5px;
+                font-size: 1rem;
+                color: #333;
+              }
+            }
+          }
+        }
+      }
+  
+      .experience {
+        margin-top: 20px;
+  
+        h2 {
+          color: #333;
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+        }
+  
+        ul {
+          list-style-type: none;
+          padding: 0;
+  
+          li {
+            margin-bottom: 15px;
+  
+            strong {
+              display: block;
+              font-size: 1.2rem;
+              color: #333;
+              margin-bottom: 5px;
+            }
+  
+            span {
+              color: #666;
+              font-size: 1rem;
+            }
+          }
+        }
       }
     }
   
@@ -72,25 +207,59 @@
   
     .form-box {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 500px;
-      height: 500px;
-      background-color: white;
-      padding: 20px;
-      max-height: 80vh; /* Set a maximum height for the form box */
-      overflow-y: auto;
-  
-      form {
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 750px; // Updated width to 1.5 times
+    background-color: white;
+    padding: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      label {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+      flex-direction: column;
+        
+        margin-bottom: 10px;
+        color: #333; // Changed label text color to a darker color
+      }
+
+      input,
+      select,
+      textarea {
+        width: 300px; // Set the width to 400px for general input elements
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #fff; // Set input background color to white
+        color: #333; // Set input text color
+        box-sizing: border-box;
+
+        
+      }
   
-        input {
-          width: 300px;
+        input,
+        select,
+        textarea {
+          
+          padding: 10px;
+          margin-bottom: 15px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          background-color: #fff; // Set input background color to white
+          color: #333; // Set input text color
+          box-sizing: border-box;
         }
+  
       }
     }
   
