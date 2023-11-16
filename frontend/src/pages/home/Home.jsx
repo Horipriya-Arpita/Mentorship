@@ -17,13 +17,13 @@ const Home = () => {
     })
   )*/
 
-  //console.log(data)
- /* return (
+//console.log(data)
+/* return (
     <div className="home">
       {/* <Stories/>
       <Share/>
       <Posts/> */
-      /*<h1>HOMe</h1>
+/*<h1>HOMe</h1>
 
       <div className="name">
         <h1>{currentUser.name}</h1>
@@ -39,25 +39,26 @@ const Home = () => {
 export default Home*/
 
 // Home.jsx
-import { UserDetails } from "../../components/user_details/UserDetails"
+import { UserDetails } from "../../components/user_details/UserDetails";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 import { UserContacts } from "../../components/user_contacts/UserContacts";
 import { SkillSet } from "../../components/skillSet/SkillSet";
-
+import { ProfileFlexbox } from "../../components/profileFlexbox/ProfileFlexbox";
 
 const Home = () => {
   const { currentUser } = useContext(AuthContext);
-  
+
   return (
     <div className="home">
       <h1>Welcome to Home Page {currentUser.name}</h1>
-      
+
       <UserDetails />
       <SkillSet />
       <UserContacts />
+      <ProfileFlexbox />
     </div>
   );
-}
+};
 
 export default Home;

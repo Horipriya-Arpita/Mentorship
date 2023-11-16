@@ -1,35 +1,78 @@
-import React from 'react';
-import './profileFlexbox.scss'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./profileFlexbox.scss";
 
-const UserFlexBox = ({ user }) => {
-  const { image, name, skillset, workExperience } = user;
+export const ProfileFlexbox = () => {
+  const [userData, setUserData] = useState(null);
 
-  const handleProfileDetails = () => {
-    // Example: Navigate to the user's profile page or show details in a modal
-    console.log(`Redirecting to ${name}'s profile details`);
+  const fetchUserDetails = async () => {
+    const token = localStorage.getItem("accessToken");
+    const userId = localStorage.getItem("userId");
+
+    if (!token) {
+      return;
+    }
+
+    try {
+      const response = await axios.get(`/api/users/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const userData = response.data;
+      console.log("Fetched user data:", userData); // Added console log
+      setUserData(userData);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const handleFollow = () => {
-    // Example: Implement follow functionality
-    console.log(`Following ${name}`);
-  };
+  useEffect(() => {
+    fetchUserDetails();
+  }, []);
+
+  if (!userData) {
+    return <div>Loading... why</div>;
+  }
+
+  const { name, profile_pic, skills } = userData;
 
   return (
-    <div className="container">
-      <img src={image} alt={name} className="image" />
-      <div className="userInfo">
-        <h3>{name}</h3>
-        <p>Skillset: {skillset}</p>
-        <p>Work Experience: {workExperience}</p>
-        <button onClick={handleProfileDetails} className="button">
-          Profile Details
-        </button>
-        <button onClick={handleFollow} className="button">
-          Follow
-        </button>
+    <div className="profile-flexbox">
+      <div className="flexbox-container">
+        <div className="profile-image">
+          <img src={profile_pic} alt="User profile image" />
+        </div>
+
+        <div className="profile-info">
+          <h2>{name}</h2>
+          {skills && skills.length > 0 && (
+            <div className="skills">
+              <h4>Skills</h4>
+              <ul>
+                {skills.map((skill) => (
+                  <li key={skill}>
+                    {skill} {/* Added console log */}
+                    console.log("Skill:", skill);
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="buttons">
+            <button>Follow</button>
+            <a
+              href={`/profile/${userData.userId}`}
+              className="profile-detail-btn"
+            >
+              Profile Details
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default UserFlexBox;
+export default ProfileFlexbox;
