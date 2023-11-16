@@ -5,6 +5,8 @@ import ExperienceForm from "../../components/profileForm/ExperienceForm";
 import SocialForm from "../../components/profileForm/SocialForm";
 //import Coverimg from "../images/coverphoto.jpg"
 //import Profileimg from "../images/profile.jpeg"
+import { useQuery } from "@tanstack/react-query";
+import { makeRequest } from "../../axios";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 
@@ -19,6 +21,16 @@ const ProjectCard = ({ title, repoLink }) => {
 };
 
 export const Profile = () => {
+
+  const userId = currentUser.id;
+  
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["user"],
+    queryFn: () =>
+      makeRequest.get("/users/find/" + userId).then((res) => {
+        return res.data;
+      }),
+  });
 
   
   const [showForm, setShowForm] = useState(false);
