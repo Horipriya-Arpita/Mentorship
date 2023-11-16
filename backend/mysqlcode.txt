@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS user_details (
     language VARCHAR(50),
     cover_pic VARCHAR(255),
     profile_pic VARCHAR(255),
-    FOREIGN KEY (userid) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE
+    FOREIGN KEY (id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 INSERT INTO user_details (id, user_type, gender, bio, country, language, cover_pic, profile_pic)
@@ -47,9 +47,9 @@ VALUES
     (1, 'Design', 3),
     (2, 'Communication', 4);
 
--- Creating Table userContacts for user contact infos -- 
+-- Creating Table user_contacts for user contact infos -- 
 
-CREATE TABLE userContacts (
+CREATE TABLE user_contacts (
     id INT PRIMARY KEY,
     userLinkedin VARCHAR(255),
     userFacebook VARCHAR(255),
@@ -58,3 +58,6 @@ CREATE TABLE userContacts (
     userID INT NOT NULL,
     FOREIGN KEY (userID) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
+
+-- Insert data into table user_contacts -- 
+INSERT INTO `user_contacts`(`id`, `userLinkedin`, `userFacebook`, `userX`, `userGithub`, `userID`) VALUES (1,'[value-2]','[value-3]','[value-4]','[value-5]',1);
