@@ -3,6 +3,7 @@ const app = express();
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import userDetailsRoutes from "./routes/user_details.js"
+import skillSetRoutes from "./routes/skills.js"
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
@@ -23,6 +24,7 @@ app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/user_details",userDetailsRoutes);
+app.use("/api/skill_set", skillSetRoutes);
 
 
 app.listen(8800, () => {
