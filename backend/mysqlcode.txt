@@ -61,3 +61,13 @@ CREATE TABLE user_contacts (
 
 -- Insert data into table user_contacts -- 
 INSERT INTO `user_contacts`(`id`, `userLinkedin`, `userFacebook`, `userX`, `userGithub`, `userID`) VALUES (1,'[value-2]','[value-3]','[value-4]','[value-5]',1);
+
+-- Relationships --
+CREATE TABLE relationships (
+    id INT PRIMARY KEY,
+    followerUserId INT NOT NULL,
+    followedUserId INT NOT NULL,
+    FOREIGN KEY (followerUserId) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (followedUserId) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
