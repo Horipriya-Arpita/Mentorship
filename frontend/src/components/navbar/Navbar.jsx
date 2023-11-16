@@ -46,7 +46,7 @@ export const Navbar = () => {
           /> */}
           <img src="https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
           {/* <span>{currentUser.name}</span> */}
-          <Link to="/profile" style={{ textDecoration: "none" }}>
+          <Link to={`/profile/${currentUser.id}`} style={{ textDecoration: "none" }}>
           <span>{currentUser.name}</span>
           </Link>
           
