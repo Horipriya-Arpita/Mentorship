@@ -5,6 +5,9 @@ import ExperienceForm from "../../components/profileForm/ExperienceForm";
 import SocialForm from "../../components/profileForm/SocialForm";
 //import Coverimg from "../images/coverphoto.jpg"
 //import Profileimg from "../images/profile.jpeg"
+import { useLocation } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { makeRequest } from "../../axios";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 
@@ -19,8 +22,30 @@ const ProjectCard = ({ title, repoLink }) => {
 };
 
 export const Profile = () => {
-
   
+const userId = parseInt(useLocation().pathname.split("/")[2]);
+
+console.log("ammo" + userId);
+
+const { isLoading, error, data } = useQuery({
+  queryKey: ["user"],
+  queryFn: () =>
+    makeRequest.get("/users/find/" + userId).then((res) => {
+      return res.data;
+    }),
+});
+
+// Check if data is still loading
+if (isLoading) {
+  console.log("Loading...");
+} else if (error) {
+  console.error("Error fetching user data:", error);
+} else {
+  // Data is available here
+  console.log("Fetched user data:", data);
+}
+
+
   const [showForm, setShowForm] = useState(false);
   const [activeTab, setActiveTab] = useState('basic');
 

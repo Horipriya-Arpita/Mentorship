@@ -2,22 +2,27 @@
 import { db } from "../connect.js";
 import jwt from "jsonwebtoken";
 
-export const getUserContacts = (req, res) => {
-  const userId = req.query.userId; // Assuming you pass userId as a query parameter
+export const getContacts = (req, res) => {
+
   const token = req.cookies.accessToken;
-  
   if (!token) return res.status(401).json("Not logged in!");
 
   jwt.verify(token, "secretkey", (err, userInfo) => {
     if (err) return res.status(403).json("Token is not valid!");
 
-    const q = `SELECT * FROM userContacts WHERE userID = ?`; // Query to fetch userContacts
+    const userid = userInfo.id;
 
-    const values = [userId || userInfo.id]; // Use userId from query parameter or userInfo.id from token
+    console.log("wowww"+ userid);
 
-    db.query(q, values, (err, data) => {
+    const q = `SELECT * FROM user_contacts WHERE userID = ?`;
+    
+    db.query(q, [userInfo.id], (err, data) => {
       if (err) return res.status(500).json(err);
+      console.log("Fetched contact data:", data);
       return res.status(200).json(data);
     });
+
   });
+
+  
 };

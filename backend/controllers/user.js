@@ -3,13 +3,25 @@ import jwt from "jsonwebtoken";
 
 export const getUser = (req, res) => {
   const userId = req.params.userId;
+  console.log("oo"+userId);
   const q = "SELECT * FROM users WHERE id=?";
 
   db.query(q, [userId], (err, data) => {
-    if (err) return res.status(500).json(err);
+    if (err) {
+        console.error("Error fetching user details:", err);
+        return res.status(500).json(err);
+    }
+
+    if (!data || data.length === 0) {
+        console.log("User not found:", userId);
+        return res.status(404).json("User not found!");
+    }
+
     const { password, ...info } = data[0];
+    console.log("Fetched user details:", info);
+
     return res.json(info);
-  });
+});
 };
 
 export const updateUser = (req, res) => {
