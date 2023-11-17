@@ -1,79 +1,63 @@
-/*import React, { useState, useEffect } from "react";
-import axios from "axios";
-import "./profileFlexbox.scss";
+// import React, { useState, useEffect } from "react";
+// import { useQuery } from "@tanstack/react-query";
+// import { makeRequest } from "../../axios";
+// import "./profileFlexbox.scss";
 
-export const ProfileFlexbox = () => {
-  const [userData, setUserData] = useState(null);
+// export const ProfileFlexbox = () => {
+//   const { isLoading, error, data } = useQuery({
+//     queryKey: ["profile_flexboxs"],
+//     queryFn: () =>
+//       makeRequest.get("/profile_flexboxs").then((res) => {
+//         return res.data;
+//       }),
+//   });
 
-  const fetchUserDetails = async () => {
-    const token = localStorage.getItem("accessToken");
-    const userId = localStorage.getItem("userId");
+//   console.log(data);
 
-    if (!token) {
-      return;
-    }
+//   if (isLoading) {
+//     return <div>Loading...</div>;
+//   }
 
-    try {
-      const response = await axios.get(`/api/users/${userId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      const userData = response.data;
-      console.log("Fetched user data:", userData); // Added console log
-      setUserData(userData);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+//   if (error) {
+//     return <div>Error: {error.message}</div>;
+//   }
 
-  useEffect(() => {
-    fetchUserDetails();
-  }, []);
+//   return (
+//     <div className="profile-flexbox">
+//       {/* <div className="flexbox-container">
+//         <div className="profile-image">
+//           <img src={profile_pic} alt="User profile image" />
+//         </div>
 
-  if (!userData) {
-    return <div>Loading... why</div>;
-  }
+//         <div className="profile-info">
+//           <h2>{name}</h2>
+//           {skills && skills.length > 0 && (
+//             <div className="skills">
+//               <h4>Skills</h4>
+//               <ul>
+//                 {skills.map((skill) => (
+//                   <li key={skill}>
+//                     {skill} 
+//                     console.log("Skill:", skill);
+//                   </li>
+//                 ))}
+//               </ul>
+//             </div>
+//           )}
 
-  const { name, profile_pic, skills } = userData;
+//           <div className="buttons">
+//             <button>Follow</button>
+//             <a
+//               href={`/profile/${userData.userId}`}
+//               className="profile-detail-btn"
+//             >
+//               Profile Details
+//             </a>
+//           </div>
+//         </div>
+//       </div> */}
+//     </div>
+//   );
+// };
 
-  return (
-    <div className="profile-flexbox">
-      <div className="flexbox-container">
-        <div className="profile-image">
-          <img src={profile_pic} alt="User profile image" />
-        </div>
-
-        <div className="profile-info">
-          <h2>{name}</h2>
-          {skills && skills.length > 0 && (
-            <div className="skills">
-              <h4>Skills</h4>
-              <ul>
-                {skills.map((skill) => (
-                  <li key={skill}>
-                    {skill} 
-                    console.log("Skill:", skill);
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          <div className="buttons">
-            <button>Follow</button>
-            <a
-              href={`/profile/${userData.userId}`}
-              className="profile-detail-btn"
-            >
-              Profile Details
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default ProfileFlexbox;
-*/
+// export default ProfileFlexbox;

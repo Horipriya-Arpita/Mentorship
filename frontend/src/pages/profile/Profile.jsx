@@ -108,7 +108,7 @@ if (isLoading) {
 
             {activeTab === 'experience' && <ExperienceForm />}
 
-            {activeTab === 'social' && <SocialForm />}
+            {activeTab === 'social' && <SocialForm userId={userId} />}
             <button className="close-button" onClick={handleClose}>
               Close
             </button>
