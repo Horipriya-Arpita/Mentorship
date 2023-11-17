@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+/*import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./profileFlexbox.scss";
 
@@ -52,7 +52,7 @@ export const ProfileFlexbox = () => {
               <ul>
                 {skills.map((skill) => (
                   <li key={skill}>
-                    {skill} {/* Added console log */}
+                    {skill} 
                     console.log("Skill:", skill);
                   </li>
                 ))}
@@ -76,3 +76,4 @@ export const ProfileFlexbox = () => {
 };
 
 export default ProfileFlexbox;
+*/
