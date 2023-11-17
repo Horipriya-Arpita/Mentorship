@@ -47,7 +47,7 @@ export const getSkills = (req, res) => {
     });
   });
 };
-
+/*
 export const addSkill = (req, res) => {
     const token = req.cookies.accessToken;
     if (!token) return res.status(401).json("Not logged in!");
@@ -69,3 +69,42 @@ export const addSkill = (req, res) => {
       });
     });
   };
+*/
+// controllers/skill.js
+// ... (previous code)
+
+export const addSkill = (req, res) => {
+  const token = req.cookies.accessToken;
+  if (!token) return res.status(401).json("Not logged in!");
+
+  jwt.verify(token, "secretkey", async (err, userInfo) => {
+    if (err) return res.status(403).json("Token is not valid!");
+
+    const userId = userInfo.id;
+
+    const { skillName, skillLevel } = req.body;
+
+    const query = `
+      INSERT INTO skill_set (userid, skill_name, skill_level)
+      VALUES (?, ?, ?)
+    `;
+
+    const values = [userId, skillName, skillLevel];
+
+    try {
+      await db.query(query, values);
+      console.log("Skill added successfully");
+
+      // Fetch the updated skills data
+      const fetchQuery = `SELECT ss.*, u.id AS userId, name FROM skill_set AS ss JOIN users AS u WHERE u.id = ?`;
+      const fetchData = await db.query(fetchQuery, [userId]);
+
+      console.log("Fetched skills data after insertion:", fetchData);
+
+      res.status(200).json("Skill added successfully");
+    } catch (error) {
+      console.error("Error adding skill:", error);
+      res.status(500).json(error);
+    }
+  });
+};
