@@ -5,9 +5,7 @@ import Market from "../../assets/3.png";
 import Memories from "../../assets/5.png";
 import Events from "../../assets/6.png";
 import Messages from "../../assets/10.png";
-import Tutorials from "../../assets/11.png";
 import Courses from "../../assets/12.png";
-import Fund from "../../assets/13.png";
 import { AuthContext } from "../../context/authContext";
 import { useContext } from "react";
 
@@ -53,7 +51,9 @@ export const LeftBar = () => {
         <div className="menu">
           <div className="item">
             <img src={Events} alt="" />
-            <h3>Events</h3>
+            <Link to="/profile/Events" style={{ textDecoration: "none", color: "#000" }}>
+              <h3>Events</h3>
+            </Link>
           </div>
           <hr />
           <div className="item">
@@ -64,18 +64,10 @@ export const LeftBar = () => {
         </div>
         <div className="menu">
           <div className="item">
-            <img src={Fund} alt="" />
-            <h3>Fundraiser</h3>
-          </div>
-          <hr />
-          <div className="item">
-            <img src={Tutorials} alt="" />
-            <h3>Tutorials</h3>
-          </div>
-          <hr />
-          <div className="item">
             <img src={Courses} alt="" />
-            <h3>Courses</h3>
+            <Link to="/profile/Courses" style={{ textDecoration: "none", color: "#000" }}>
+              <h3>Courses</h3>
+            </Link>
           </div>
           <hr />
         </div>

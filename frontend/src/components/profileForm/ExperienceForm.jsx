@@ -1,5 +1,6 @@
 import "../../pages/profile/profile.scss";
 import React, { useState } from "react";
+import YearPicker from "react-year-picker";
 
 const ExperienceForm = () => {
   const [expertiseOptions] = useState([
@@ -119,23 +120,23 @@ const ExperienceForm = () => {
               onChange={(e) =>
                 handleWorkExperienceChange(index, "company", e.target.value)
               }
+              dateFormat="yyyy"
+              showYearPicker
             />
 
             <label>Start Year:</label>
-            <input
-              type="number"
-              value={experience.startYear}
-              onChange={(e) =>
-                handleWorkExperienceChange(index, "startYear", e.target.value)
+            <YearPicker
+              value ={experience.startYear}
+              onChange={(year) =>
+                handleWorkExperienceChange(index, "startYear", year)
               }
             />
 
             <label>End Year:</label>
-            <input
-              type="number"
-              value={experience.endYear}
-              onChange={(e) =>
-                handleWorkExperienceChange(index, "endYear", e.target.value)
+            <YearPicker
+              value ={experience.endYear}
+              onChange={(year) =>
+                handleWorkExperienceChange(index, "endYear", year)
               }
             />
           </div>
@@ -168,20 +169,18 @@ const ExperienceForm = () => {
             />
 
             <label>Start Year:</label>
-            <input
-              type="text"
+            <YearPicker
               value={education.startYear}
-              onChange={(e) =>
-                handleEducationChange(index, "startYear", e.target.value)
+              onChange={(year) =>
+                handleEducationChange(index, "startYear", year)
               }
             />
 
             <label>End Year:</label>
-            <input
-              type="text"
+            <YearPicker
               value={education.endYear}
-              onChange={(e) =>
-                handleEducationChange(index, "endYear", e.target.value)
+              onChange={(year) =>
+                handleEducationChange(index, "endYear", year)
               }
             />
           </div>
