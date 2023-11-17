@@ -58,14 +58,9 @@ const Home = () => {
   return (
     <div className="home">
       <h1>Welcome to Home Page {currentUser.name}</h1>
-      <UserDetails />
-      <Sessions />
-      <SkillSet />
-      <UserContacts />
+      
       <ProfileFlexbox />
-      <EducationData />
-      <WorkData />
-   
+ 
     </div>
   );
 };

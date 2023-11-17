@@ -1,0 +1,32 @@
+.user-details {
+  margin-top: 20px;
+}
+
+h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+p {
+  list-style-type: none;
+  padding: 0;
+
+  display: inline-block;
+  background-color: #4caf50;
+  color: #fff;
+  padding: 8px 16px;
+  margin: 4px;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+strong {
+    color: #333;
+}
+
+.bio {
+    color: #fff;
+    display: block;
+    height: fit-content;
+}

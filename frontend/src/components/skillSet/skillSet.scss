@@ -1,0 +1,54 @@
+h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    background-color: #4caf50;
+    color: #fff;
+    padding: 8px 16px;
+    margin: 4px;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+}
+
+.proficient-in {
+  margin-top: 20px;
+
+  h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+
+      &:before {
+        content: "⚡";
+        margin-right: 5px;
+        font-size: 1.2rem;
+        color: #f39c12; // Sunflower Yellow
+      }
+
+      span {
+        margin-left: 5px;
+        font-size: 1rem;
+        color: #333;
+      }
+    }
+  }
+}
