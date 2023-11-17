@@ -29,6 +29,7 @@ export const UserContacts = () => {
           <p>User ID: {data[0].id}</p>
           <p>LinkedIn: {data[0].userLinkedin}</p>
           <p>Facebook: {data[0].userFacebook}</p>
+          <p>Twitter: {data[0].userX}</p>
           {/* Add more details based on your user_details schema */}
         </div>
       )}

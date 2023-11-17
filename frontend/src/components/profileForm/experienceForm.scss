@@ -82,88 +82,23 @@
       cursor: pointer;
     }
     // YearPicker specific styles
-    .react-datepicker-wrapper {
-      display: inline-block;
-      width: 100%;
-
-      .react-datepicker {
-        font-family: Arial, sans-serif;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 10px;
-        background-color: #fff; // Set the default background color for the datepicker
-
-        &.react-datepicker--time-only {
-          .react-datepicker-time__caption {
-            display: none;
-          }
-        }
-
-        &-year-wrapper {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          margin-top: 10px;
-          background-color: #f9f9f9;
-          padding: 5px;
-          border-radius: 5px;
-
-          .react-datepicker__year-text {
-            padding: 8px;
-            margin: 5px;
-            border-radius: 3px;
-            cursor: pointer;
-
-            &:hover {
-              background-color: #ddd;
-            }
-          }
-
-          .react-datepicker__year-text--selected {
-            background-color: #4caf50;
-            color: #fff;
-
-            &:hover {
-              background-color: #398439;
-            }
-          }
-        }
-
-        &-portal {
-          // Style the dialog box (the date selection container)
-          background-color: white; // Set the background color of the dialog box
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          border: 1px solid #ccc;
-          border-radius: 5px;
-        }
-      }
-    }
-  }
-
-    // YearPicker specific styles
-.react-datepicker-wrapper {
-  display: inline-block;
-  width: 100%;
-
+// Add this style for the custom-datepicker
+.custom-datepicker {
   .react-datepicker {
-    font-family: Arial, sans-serif;
+    background-color: #fff; // Set the background color
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
-    background-color: #fff; // Set the default background color for the datepicker
 
     &-year-wrapper {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       margin-top: 10px;
-      background-color: #f9f9f9;
+      background-color: #400606;
       padding: 5px;
       border-radius: 5px;
-      max-height: 150px; // Set a maximum height to enable scrolling
-      overflow-y: auto; // Enable vertical scrolling
 
       .react-datepicker__year-text {
         padding: 8px;
@@ -187,13 +122,16 @@
     }
 
     &-portal {
-      // Style the dialog box (the date selection container)
       background-color: white; // Set the background color of the dialog box
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border: 1px solid #ccc;
       border-radius: 5px;
     }
   }
-}
+ }
 
+// ... your existing styles for other elements
+
+
+  }
 }

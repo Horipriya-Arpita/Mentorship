@@ -1,10 +1,10 @@
 // routes/works.js
 import express from "express";
-import { getWorks, addWork } from "../controllers/work.js";
+import { getWorkExperiences, addWorkExperience } from "../controllers/work.js";
 
 const router = express.Router();
 
-router.get("/", getWorks);
-router.post("/add", addWork);
+router.get("/", getWorkExperiences);
+router.post("/add", addWorkExperience);
 
 export default router;

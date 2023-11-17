@@ -46,7 +46,8 @@ import { AuthContext } from "../../context/authContext";
 import { UserContacts } from "../../components/user_contacts/UserContacts";
 import { SkillSet } from "../../components/skillSet/SkillSet";
 import { ProfileFlexbox } from "../../components/profileFlexbox/profileFlexbox";
-
+import { WorkData } from "../../components/workData/WorkData";
+import { EducationData } from "../../components/educationData/EducationData"
 const Home = () => {
   const { currentUser } = useContext(AuthContext);
 
@@ -59,6 +60,8 @@ const Home = () => {
 
       <UserContacts />
       <ProfileFlexbox />
+      <EducationData />
+      <WorkData />
    
     </div>
   );

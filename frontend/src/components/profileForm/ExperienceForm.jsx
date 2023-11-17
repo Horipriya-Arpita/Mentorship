@@ -1,6 +1,5 @@
 import "../profileForm/experienceForm.scss";
 import React, { useState } from "react";
-import DatePicker from "react-datepicker";
 import { useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 
@@ -69,6 +68,7 @@ const ExperienceForm = () => {
     { company: "", startYear: "", endYear: "" },
   ]);
 
+
   const addWorkExperience = () => {
     setWorkExperiences([
       ...workExperiences,
@@ -79,11 +79,18 @@ const ExperienceForm = () => {
   const handleWorkExperienceChange = (index, field, value) => {
     const updatedExperiences = [...workExperiences];
     updatedExperiences[index][field] = value;
+
+    // Parse the year value as an integer
+    // if (field === "startYear" || field === "endYear") {
+    //   updatedExperiences[index][field] = parseInt(value, 10);
+    // }
+
     setWorkExperiences(updatedExperiences);
   };
 
   const updateWorkExperiences = async () => {
     try {
+      console.log("Work Experience Data:", workExperiences); // Log the data here
       await makeRequest.post("/work/add", {
         experiences: workExperiences,
       });
@@ -96,9 +103,12 @@ const ExperienceForm = () => {
   
   /*work Portion ends*/ 
 
+  /*education Portion starts*/ 
+
   const [educations, setEducations] = useState([
     { institution: "", degree: "", startYear: "", endYear: "" },
   ]);
+
 
   const addEducation = () => {
     setEducations([
@@ -110,13 +120,21 @@ const ExperienceForm = () => {
   const handleEducationChange = (index, field, value) => {
     const updatedEducations = [...educations];
     updatedEducations[index][field] = value;
+
+    // Parse the year value as an integer
+    // if (field === "startYear" || field === "endYear") {
+    //   updatedEducations[index][field] = parseInt(value, 10);
+    // }
+
     setEducations(updatedEducations);
   };
 
-  console.log("nana" + [educations]);
+
+  // console.log("nana" + [educations]);
 
   const updateEducations = async () => {
     try {
+      console.log("Educations Experience Data:", educations);
       await makeRequest.post("/educations/add", {
         educations: educations,
       });
@@ -134,6 +152,7 @@ const ExperienceForm = () => {
     updateEducations();
   };
 
+  /*education Portion ends*/ 
   return (
     <form className="experience-form">
       {/* Expertise Section */}
@@ -182,7 +201,7 @@ const ExperienceForm = () => {
       </div>
 
       {/* Work Experience Section */}
-      <div>
+       <div>
         <h3>Work Experience</h3>
         {workExperiences.map((experience, index) => (
           <div key={index} className="form-group">
@@ -193,30 +212,24 @@ const ExperienceForm = () => {
               onChange={(e) =>
                 handleWorkExperienceChange(index, "company", e.target.value)
               }
-              dateFormat="yyyy"
-              showYearPicker
             />
 
             <label>Start Year:</label>
-            <DatePicker
-            dateFormat="yyyy"
-              selected={experience.startYear}
-              value= {experience.startYear}
-              onChange={(year) =>
-                handleWorkExperienceChange(index, "startYear", year)
+            <input
+              type="date"
+              value={experience.startYear}
+              onChange={(e) =>
+                handleWorkExperienceChange(index, "startYear", e.target.value)
               }
-              showYearPicker
             />
 
             <label>End Year:</label>
-            <DatePicker
-              dateFormat="yyyy"
-              selected={experience.endYear}
+            <input
+              type="date"
               value={experience.endYear}
-              onChange={(year) =>
-                handleWorkExperienceChange(index, "endYear", year)
+              onChange={(e) =>
+                handleWorkExperienceChange(index, "endYear", e.target.value)
               }
-              showYearPicker
             />
           </div>
         ))}
@@ -252,25 +265,21 @@ const ExperienceForm = () => {
             />
 
             <label>Start Year:</label>
-            <DatePicker
-              dateFormat="yyyy"
-              selected={education.startYear}
+            <input
+              type="date"
               value={education.startYear}
-              onChange={(year) =>
-                handleEducationChange(index, "startYear", year)
+              onChange={(e) =>
+                handleEducationChange(index, "startYear", e.target.value)
               }
-              showYearPicker
             />
 
             <label>End Year:</label>
-            <DatePicker
-              dateFormat="yyyy"
-              selected={education.endYear}
+            <input
+              type="date"
               value={education.endYear}
-              onChange={(year) =>
-                handleEducationChange(index, "endYear", year)
+              onChange={(e) =>
+                handleEducationChange(index, "endYear", e.target.value)
               }
-              showYearPicker
             />
           </div>
         ))}

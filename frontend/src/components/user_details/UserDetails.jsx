@@ -29,7 +29,9 @@ export const UserDetails = () => {
           <p>User ID: {data[0].userId}</p>
           <p>Name: {data[0].name}</p>
           <p>Gender: {data[0].gender}</p>
-          
+          <p>Bio: {data[0].bio}</p>
+          <p>Country: {data[0].country}</p>
+          <p>Language: {data[0].language}</p>
         </div>
       )}
     </div>

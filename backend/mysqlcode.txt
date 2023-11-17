@@ -92,3 +92,41 @@ VALUES
     ('Database Design Principles', 'Eve Explorer', '2023-11-22', '13:30:00', 'Intermediate', 'http://example.com/session5'),
     ('Web Development Basics', 'John Doe', '2023-11-15', '09:00:00', 'Beginner', 'http://example.com/session1'),
     ('React Fundamentals', 'Jane Smith', '2023-11-16', '14:30:00', 'Intermediate', 'http://example.com/session2');
+
+
+this is work table:
+-- Create the 'work' table
+CREATE TABLE IF NOT EXISTS work (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    userid INT,
+    company VARCHAR(255) NOT NULL,
+    start_year INT,
+    end_year INT,
+    FOREIGN KEY (userid) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+this is education table:
+-- Create the 'education' table
+CREATE TABLE IF NOT EXISTS education (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    userid INT,
+    institution VARCHAR(255) NOT NULL,
+    degree VARCHAR(255) NOT NULL,
+    start_year INT,
+    end_year INT,
+    FOREIGN KEY (userid) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+-- Alter the 'work' table
+ALTER TABLE work
+MODIFY start_year VARCHAR(255);
+
+ALTER TABLE work
+MODIFY end_year VARCHAR(255);
+
+-- Alter the 'education' table
+ALTER TABLE education
+MODIFY start_year VARCHAR(255);
+
+ALTER TABLE education
+MODIFY end_year VARCHAR(255);
