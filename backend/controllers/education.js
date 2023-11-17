@@ -23,7 +23,7 @@ export const getEducations = (req, res) => {
 };
 
 export const addEducation = (req, res) => {
-  const token = req.cookies.accessToken;
+  /*const token = req.cookies.accessToken;
   if (!token) return res.status(401).json("Not logged in!");
 
   jwt.verify(token, "secretkey", async (err, userInfo) => {
@@ -47,5 +47,5 @@ export const addEducation = (req, res) => {
       console.error("Error adding education:", error);
       res.status(500).json(error);
     }
-  });
+  });*/
 };
