@@ -40,6 +40,7 @@ export default Home*/
 
 // Home.jsx
 import { UserDetails } from "../../components/user_details/UserDetails";
+import { Sessions } from "../../components/sessions/Sessions";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { UserContacts } from "../../components/user_contacts/UserContacts";
@@ -52,10 +53,9 @@ const Home = () => {
   return (
     <div className="home">
       <h1>Welcome to Home Page {currentUser.name}</h1>
-
       <UserDetails />
+      <Sessions />
       <SkillSet />
-      <UserContacts />
       {/* <ProfileFlexbox /> */}
       
     </div>
