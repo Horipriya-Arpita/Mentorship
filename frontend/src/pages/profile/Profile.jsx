@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import { useContext } from "react";
-import { AuthContext } from "../../context/authContext";
+import { AuthContext } from "../../context/AuthContext";
 
 const ProjectCard = ({ title, repoLink }) => {
   return (
