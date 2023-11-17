@@ -197,59 +197,37 @@ const BasicInfoForm = () => {
     country: "",
     language: "",
     bio: "",
-    cover_pic: "",
-    profile_pic: "",
   });
 
-  const [coverPicFile, setCoverPicFile] = useState(null);
-  const [profilePicFile, setProfilePicFile] = useState(null);
 
   const queryClient = useQueryClient();
 
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  // const handleInputChange = (e) => {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (e.target.name === "cover_pic") {
-      setCoverPicFile(file);
-    } else if (e.target.name === "profile_pic") {
-      setProfilePicFile(file);
-    }
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+  
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     console.log("Form Data:", formData);
-    console.log("Cover Pic File:", coverPicFile);
-    console.log("Profile Pic File:", profilePicFile);
 
     try {
-      // Upload cover picture
-      const coverPicFormData = new FormData();
-      coverPicFormData.append("file", coverPicFile);
-      const coverPicResponse = await makeRequest.post("/api/upload", coverPicFormData);
-      const coverPicURL = coverPicResponse.data;
-
-      // Upload profile picture
-      const profilePicFormData = new FormData();
-      profilePicFormData.append("file", profilePicFile);
-      const profilePicResponse = await makeRequest.post("/api/upload", profilePicFormData);
-      const profilePicURL = profilePicResponse.data;
-
-      console.log("Cover Pic URL:", coverPicURL);
-      console.log("Profile Pic URL:", profilePicURL);
-
       // Update user details with picture URLs
-      await makeRequest.post("/api/user_details/add", {
+      await makeRequest.post("/user_details/add", {
         ...formData,
-        cover_pic: coverPicURL,
-        profile_pic: profilePicURL,
       });
 
       // Invalidate the user_details query to refetch the updated data
@@ -268,8 +246,8 @@ const BasicInfoForm = () => {
           onChange={handleInputChange}
           value={formData.user_type}
         >
-          <option value="regular">Regular</option>
-          <option value="premium">Premium</option>
+          <option value="mentor">Mentor</option>
+          <option value="mentee">Mentee</option>
         </select>
       </label>
       <label>
@@ -308,7 +286,7 @@ const BasicInfoForm = () => {
           value={formData.bio}
         ></textarea>
       </label>
-      <label>
+      {/* <label>
         Cover Picture:
         <input
           type="file"
@@ -325,8 +303,8 @@ const BasicInfoForm = () => {
           onChange={handleFileChange}
           accept="image/*"
         />
-      </label>
-      <button type="submit">Update</button>
+      </label> */}
+      <button onClick={handleSubmit}type="submit">Update</button>
     </form>
   );
 };

@@ -48,7 +48,7 @@ export const getDetails = (req, res) => {
   });
 };
 
-export const addDetails = (req, res) => {
+export const addDetails = async (req, res) => {
   const token = req.cookies.accessToken;
   if (!token) return res.status(401).json("Not logged in!");
 
@@ -65,21 +65,17 @@ export const addDetails = (req, res) => {
       bio,
       country,
       language,
-      cover_pic,
-      profile_pic,
     } = req.body;
 
     const insertQuery = `
-      INSERT INTO user_details (id, user_type, gender, bio, country, language, cover_pic, profile_pic)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO user_details (id, user_type, gender, bio, country, language)
+      VALUES (?, ?, ?, ?, ?, ?)
       ON DUPLICATE KEY UPDATE
       user_type = VALUES(user_type),
       gender = VALUES(gender),
       bio = VALUES(bio),
       country = VALUES(country),
-      language = VALUES(language),
-      cover_pic = VALUES(cover_pic),
-      profile_pic = VALUES(profile_pic)
+      language = VALUES(language);
     `;
 
     const values = [
@@ -89,8 +85,6 @@ export const addDetails = (req, res) => {
       bio,
       country,
       language,
-      cover_pic,
-      profile_pic,
     ];
 
     try {
