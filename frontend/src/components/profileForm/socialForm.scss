@@ -1,0 +1,31 @@
+    /* Add styling for the SocialForm */
+    .social-form {
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    
+        label {
+          display: block;
+          margin-bottom: 10px;
+        }
+    
+        input {
+          width: 100%;
+          padding: 8px;
+          margin-bottom: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-sizing: border-box;
+        }
+    
+        button {
+          background-color: blue;
+          color: white;
+          padding: 10px;
+          margin: 10px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }

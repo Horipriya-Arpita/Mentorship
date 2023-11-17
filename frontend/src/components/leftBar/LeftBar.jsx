@@ -6,7 +6,7 @@ import Memories from "../../assets/5.png";
 import Events from "../../assets/6.png";
 import Messages from "../../assets/10.png";
 import Courses from "../../assets/12.png";
-import { AuthContext } from "../../context/authContext";
+import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 
 export const LeftBar = () => {
@@ -58,7 +58,9 @@ export const LeftBar = () => {
           <hr />
           <div className="item">
             <img src={Messages} alt="" />
-            <h3>Messages</h3>
+            <Link to="/profile/Messenger" style={{ textDecoration: "none", color: "#000" }}>
+              <h3>Messages</h3>
+            </Link>
           </div>
           <hr />
         </div>

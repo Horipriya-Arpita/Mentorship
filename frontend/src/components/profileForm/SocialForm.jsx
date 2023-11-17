@@ -1,6 +1,8 @@
 import "../../pages/profile/profile.scss";
 import React, { useState } from "react";
+import '../profileForm/socialForm.scss';
 import { makeRequest } from "../../axios";
+
 
 const SocialForm = (userId) => {
   const [socialFormData, setSocialFormData] = useState({

@@ -20,6 +20,8 @@
     "react-scripts": "5.0.1",
     "react-year-picker": "^0.3.7",
     "sass": "^1.69.5",
+    "socket.io-client": "^4.7.2",
+    "timeago.js": "^4.0.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
