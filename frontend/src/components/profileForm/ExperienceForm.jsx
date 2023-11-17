@@ -39,14 +39,13 @@ const ExperienceForm = () => {
   };
 
   const [workExperiences, setWorkExperiences] = useState([
-    { company: "", startDate: "", endDate: "" },
+    { company: "", startYear: "", endYear: "" },
   ]);
 
   const addWorkExperience = () => {
-    
     setWorkExperiences([
       ...workExperiences,
-      { company: "", startDate: "", endDate: "" },
+      { company: "", startYear: "", endYear: "" },
     ]);
   };
 
@@ -55,6 +54,24 @@ const ExperienceForm = () => {
     updatedExperiences[index][field] = value;
     setWorkExperiences(updatedExperiences);
   };
+
+  const [educations, setEducations] = useState([
+    { institution: "", degree: "", startYear: "", endYear: "" },
+  ]);
+
+  const addEducation = () => {
+    setEducations([
+      ...educations,
+      { institution: "", degree: "", startYear: "", endYear: "" },
+    ]);
+  };
+
+  const handleEducationChange = (index, field, value) => {
+    const updatedEducations = [...educations];
+    updatedEducations[index][field] = value;
+    setEducations(updatedEducations);
+  };
+
 
   return (
     <form className="experience-form">
@@ -104,21 +121,21 @@ const ExperienceForm = () => {
               }
             />
 
-            <label>Start Date:</label>
+            <label>Start Year:</label>
             <input
-              type="date"
-              value={experience.startDate}
+              type="number"
+              value={experience.startYear}
               onChange={(e) =>
-                handleWorkExperienceChange(index, "startDate", e.target.value)
+                handleWorkExperienceChange(index, "startYear", e.target.value)
               }
             />
 
-            <label>End Date:</label>
+            <label>End Year:</label>
             <input
-              type="date"
-              value={experience.endDate}
+              type="number"
+              value={experience.endYear}
               onChange={(e) =>
-                handleWorkExperienceChange(index, "endDate", e.target.value)
+                handleWorkExperienceChange(index, "endYear", e.target.value)
               }
             />
           </div>
@@ -128,8 +145,52 @@ const ExperienceForm = () => {
         </button>
       </div>
 
-      {/* Add form fields for Education */}
-      {/* ... */}
+      <div className="education-section">
+        <h3>Education</h3>
+        {educations.map((education, index) => (
+          <div key={index} className="form-group">
+            <label>Institution:</label>
+            <input
+              type="text"
+              value={education.institution}
+              onChange={(e) =>
+                handleEducationChange(index, "institution", e.target.value)
+              }
+            />
+
+            <label>Degree:</label>
+            <input
+              type="text"
+              value={education.degree}
+              onChange={(e) =>
+                handleEducationChange(index, "degree", e.target.value)
+              }
+            />
+
+            <label>Start Year:</label>
+            <input
+              type="text"
+              value={education.startYear}
+              onChange={(e) =>
+                handleEducationChange(index, "startYear", e.target.value)
+              }
+            />
+
+            <label>End Year:</label>
+            <input
+              type="text"
+              value={education.endYear}
+              onChange={(e) =>
+                handleEducationChange(index, "endYear", e.target.value)
+              }
+            />
+          </div>
+        ))}
+        <button type="button" onClick={addEducation}>
+          Add Education
+        </button>
+      </div>
+
 
       <button type="submit">Update</button>
     </form>

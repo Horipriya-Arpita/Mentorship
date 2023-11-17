@@ -235,7 +235,7 @@
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1200px; // Updated width to 1.5 times
+    width: 500px; // Updated width to 1.5 times
     background-color: white;
     padding: 20px;
     max-height: 80vh;
@@ -384,6 +384,44 @@
 
   h3 {
     margin-bottom: 10px;
+  }
+}
+
+.education-section {
+  h3 {
+    margin-bottom: 10px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+    label {
+      width: 150px;
+      margin-right: 10px;
+      margin-bottom: 5px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+  }
+
+  button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
   }
 }
 
