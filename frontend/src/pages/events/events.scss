@@ -1,4 +1,4 @@
-.sessions {
+.events {
     padding: 20px;
     margin-left: 100px;
   
@@ -7,40 +7,67 @@
       font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
   
-    .session-info {
+    .event-info {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 20px;
+      
   
-      .session {
+      .event {
         display: flex;
         align-items: center;
-        justify-content: center; /* Center the box horizontally */
+        justify-content: space-between; /* Center the box horizontally */
         width: 500px; /* Set the initial width to 3 times larger */
         height: 150px;
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
-        background: linear-gradient(to right, #f39c12, #d35400); /* Blue gradient */
-  
-        &:hover {
-          background: #808080; /* Grey background on hover */
-        }
+        background: linear-gradient(to right, #8e44ad, #6c3483); /* Blue gradient */
+        
   
         .details {
+            margin-left: 20px;
           h3 {
-            margin: 10px;
+            
             font-size: larger;
             color: #fff; /* White text color */
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-          }
+            
+        }
   
           p {
             font-size: medium;
             margin: 0;
             color: #fff; /* Light grey text color */
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          }
+        }
+  
+        .buttons {
+          display: flex;
+          gap: 10px;
+  
+          .going-button,
+          .interested-button {
+            padding: 8px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: medium;
+            transition: background 0.3s;
+  
+            &.selected {
+              background: #f9f9f9; /* Grey background for selected state */
+            }
+          }
+  
+          .going-button {
+            background: #4caf50; /* Green background */
+          }
+  
+          .interested-button {
+            background: #ff9800; /* Orange background */
           }
         }
       }

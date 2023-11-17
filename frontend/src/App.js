@@ -31,6 +31,8 @@ import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Sessions from "./pages/sessions/Sessions";
+import Events from "./pages/events/Events";
+import Courses from "./pages/courses/Courses";
 
 
 function App() {
@@ -90,6 +92,14 @@ function App() {
         {
           path: "/profile/Sessions",
           element: <Sessions />,
+        },
+        {
+          path: "/profile/Events",
+          element: <Events />,
+        },
+        {
+          path: "/profile/Courses",
+          element: <Courses />,
         },
       ],
     },
