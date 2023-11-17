@@ -75,7 +75,7 @@ export const ProfileFlexbox = () => {
       }),
   }, console.log(1));
 
-  console.log("klasjd "+data);
+  console.log("klasjd " + data);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -85,19 +85,34 @@ export const ProfileFlexbox = () => {
     return <div>Error: {error.message}</div>;
   }
 
-  return (
-    <div className="Profile Flexbox">
-      {data && (
-        <div>
-          <h2>User Details</h2>
-          <p>name: {data[0].name}</p>
-          {/* <p>profile pic: {data[0].profile_pic}</p> */}
-          <p>skill name: {data[0].skill_name}</p>
-          
-        </div>
-      )}
-    </div>
-  );
+  const userData = {};
+
+  data.forEach((item) => {
+    const userID = item.userID;
+  
+    if (!userData[userID]) {
+      userData[userID] = []; // Initialize array for user ID
+    }
+  
+    userData[userID].push(item.skillName); // Pushing skill data
+  });
+  
+
+  Object.keys(userData).forEach((userID) => {
+    const skillData = userData[userID];
+
+    return (
+      <div key={userID}>
+        <h3>User ID: {userID}</h3>
+        <p>Skills:</p>
+        <ul>
+          {skillData.map((skill) => (
+            <li key={skill}>{skill}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  });
 };
 
 export default ProfileFlexbox;
