@@ -73,7 +73,7 @@ export const addSkill = (req, res) => {
 // controllers/skill.js
 // ... (previous code)
 
-export const addSkill = (req, res) => {
+/*export const addSkill = (req, res) => {
   const token = req.cookies.accessToken;
   if (!token) return res.status(401).json("Not logged in!");
 
@@ -82,7 +82,12 @@ export const addSkill = (req, res) => {
 
     const userId = userInfo.id;
 
-    const { skillName, skillLevel } = req.body;
+    const { skillName } = req.body;
+
+    console.log(skillName);
+
+    // Set skillLevel to null if not provided
+    const skillLevel = null;
 
     const query = `
       INSERT INTO skill_set (userid, skill_name, skill_level)
@@ -108,3 +113,4 @@ export const addSkill = (req, res) => {
     }
   });
 };
+*/

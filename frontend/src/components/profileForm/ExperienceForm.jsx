@@ -4,7 +4,6 @@ import YearPicker from "react-year-picker";
 import { useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 
-
 const ExperienceForm = () => {
   const queryClient = useQueryClient();
   const [expertiseOptions] = useState([
@@ -37,11 +36,28 @@ const ExperienceForm = () => {
     }
   };
 
+  //console.log("arr"+[selectedExpertise]);
+
   const removeExpertise = (index) => {
     const updatedExpertise = [...selectedExpertise];
     updatedExpertise.splice(index, 1);
     setSelectedExpertise(updatedExpertise);
   };
+
+  const updateExpertise = async () => {
+    const formData = {
+      skills: selectedExpertise,
+    };
+  
+    console.log("Selected Expertise: papap", JSON.stringify(formData.skills));
+    try {
+      await makeRequest.post("/skills/add", JSON.stringify(formData.skills));
+      queryClient.invalidateQueries("skills");
+    } catch (error) {
+      console.error("Error updating expertise:", error);
+    }
+  };
+  
 
   const [workExperiences, setWorkExperiences] = useState([
     { company: "", startYear: "", endYear: "" },
@@ -58,6 +74,17 @@ const ExperienceForm = () => {
     const updatedExperiences = [...workExperiences];
     updatedExperiences[index][field] = value;
     setWorkExperiences(updatedExperiences);
+  };
+
+  const updateWorkExperiences = async () => {
+    try {
+      await makeRequest.post("/work/add", {
+        experiences: workExperiences,
+      });
+      queryClient.invalidateQueries("work");
+    } catch (error) {
+      console.error("Error updating work experiences:", error);
+    }
   };
 
   const [educations, setEducations] = useState([
@@ -77,43 +104,35 @@ const ExperienceForm = () => {
     setEducations(updatedEducations);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    console.log("Selected Expertise:", selectedExpertise);
-    console.log("Work Experiences:", workExperiences);
-    console.log("Educations:", educations);
-
+  const updateEducations = async () => {
     try {
-      // Send a POST request to add skills
-      await makeRequest.post("/skills/add", {
-        skills: selectedExpertise,
-      });
-
-      // Send a POST request to add work experiences
-      await makeRequest.post("/work/add", {
-        experiences: workExperiences,
-      });
-
-      // Send a POST request to add educations
       await makeRequest.post("/educations/add", {
         educations: educations,
       });
-
-      // Invalidate relevant queries to refetch the updated data
-      queryClient.invalidateQueries("skills");
-      queryClient.invalidateQueries("work");
       queryClient.invalidateQueries("educations");
     } catch (error) {
-      console.error("Error updating user details:", error);
+      console.error("Error updating educations:", error);
     }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    updateExpertise();
+    updateWorkExperiences();
+    updateEducations();
   };
 
   return (
     <form className="experience-form">
+      {/* Expertise Section */}
       <label>
         Expertise:
-        <select multiple value={selectedExpertise} onChange={handleExpertiseChange}>
+        <select
+          multiple
+          value={selectedExpertise}
+          onChange={handleExpertiseChange}
+        >
           {expertiseOptions.map((option) => (
             <option key={option} value={option}>
               {option}
@@ -125,7 +144,11 @@ const ExperienceForm = () => {
       <div>
         <label>
           Add New Expertise:
-          <input type="text" value={newExpertise} onChange={handleNewExpertiseChange} />
+          <input
+            type="text"
+            value={newExpertise}
+            onChange={handleNewExpertiseChange}
+          />
         </label>
         <button type="button" onClick={addNewExpertise}>
           Add
@@ -142,8 +165,12 @@ const ExperienceForm = () => {
             </button>
           </div>
         ))}
+        <button type="button" onClick={updateExpertise}>
+          Update Expertise
+        </button>
       </div>
 
+      {/* Work Experience Section */}
       <div>
         <h3>Work Experience</h3>
         {workExperiences.map((experience, index) => (
@@ -161,7 +188,7 @@ const ExperienceForm = () => {
 
             <label>Start Year:</label>
             <YearPicker
-              value ={experience.startYear}
+              value={experience.startYear}
               onChange={(year) =>
                 handleWorkExperienceChange(index, "startYear", year)
               }
@@ -169,19 +196,23 @@ const ExperienceForm = () => {
 
             <label>End Year:</label>
             <YearPicker
-              value ={experience.endYear}
+              value={experience.endYear}
               onChange={(year) =>
                 handleWorkExperienceChange(index, "endYear", year)
               }
-              className="year-input" 
+              className="year-input"
             />
           </div>
         ))}
         <button type="button" onClick={addWorkExperience}>
           Add Work Experience
         </button>
+        <button type="button" onClick={updateWorkExperiences}>
+          Update Work Experiences
+        </button>
       </div>
 
+      {/* Education Section */}
       <div className="education-section">
         <h3>Education</h3>
         {educations.map((education, index) => (
@@ -210,7 +241,7 @@ const ExperienceForm = () => {
               onChange={(year) =>
                 handleEducationChange(index, "startYear", year)
               }
-              className="year-input" // Assign the CSS classes here
+              className="year-input"
             />
 
             <label>End Year:</label>
@@ -219,21 +250,22 @@ const ExperienceForm = () => {
               onChange={(year) =>
                 handleEducationChange(index, "endYear", year)
               }
-              className="year-input" 
+              className="year-input"
             />
-
-            <button type="button" onClick={addEducation}>
-                Add Education
-              </button>
           </div>
         ))}
-        <button type="submit" onClick={handleSubmit}>
-          Update
+        <button type="button" onClick={addEducation}>
+          Add Education
+        </button>
+        <button type="button" onClick={updateEducations}>
+          Update Educations
         </button>
       </div>
 
-
-      <button type="submit">Update</button>
+      {/* Final Submit Button */}
+      <button type="submit" onClick={handleSubmit}>
+        Update All
+      </button>
     </form>
   );
 };
