@@ -7,7 +7,6 @@ import skillSetRoutes from "./routes/skills.js"
 import userContactRoutes from "./routes/user_contacts.js"
 import relationshipRoutes from "./routes/relationships.js"
 import profileFlexboxRoutes from "./routes/profile_flexboxs.js"
-import sessionRoutes from "./routes/sessions.js"
 import cors from "cors";
 import multer from "multer";
 import cookieParser from "cookie-parser";
@@ -49,7 +48,6 @@ app.use("/api/skill_set", skillSetRoutes);
 app.use("/api/user_contacts", userContactRoutes);
 app.use("/api/relationships", relationshipRoutes)
 app.use("/api/profile_flexboxs", profileFlexboxRoutes)
-app.use("/api/sessions", sessionRoutes)
 
 app.listen(8800, () => {
   console.log("API working!");

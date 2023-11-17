@@ -6,7 +6,7 @@ import Memories from "../../assets/5.png";
 import Events from "../../assets/6.png";
 import Messages from "../../assets/10.png";
 import Courses from "../../assets/12.png";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../context/authContext";
 import { useContext } from "react";
 
 export const LeftBar = () => {

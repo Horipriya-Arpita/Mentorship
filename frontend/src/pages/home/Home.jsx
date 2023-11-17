@@ -42,7 +42,7 @@ export default Home*/
 import { UserDetails } from "../../components/user_details/UserDetails";
 import { Sessions } from "../../components/sessions/Sessions";
 import { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../context/authContext";
 import { UserContacts } from "../../components/user_contacts/UserContacts";
 import { SkillSet } from "../../components/skillSet/SkillSet";
 import { ProfileFlexbox } from "../../components/profileFlexbox/profileFlexbox";
@@ -56,8 +56,10 @@ const Home = () => {
       <UserDetails />
       <Sessions />
       <SkillSet />
-      {/* <ProfileFlexbox /> */}
-      
+
+      <UserContacts />
+      <ProfileFlexbox />
+   
     </div>
   );
 };
