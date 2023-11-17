@@ -53,10 +53,12 @@ app.use("/api/user_contacts", userContactRoutes);
 app.use("/api/relationships", relationshipRoutes);
 app.use("/api/profile_flexboxs", profileFlexboxRoutes);
 app.use("/api/works", workRoutes);
+app.use("/api/educations", educationRoutes);
 app.use("/api/relationships", relationshipRoutes);
 app.use("/api/profile_flexboxs", profileFlexboxRoutes);
 app.use("/api/work", workRoutes);
 app.use("/api/educations", educationRoutes);
+app.use("/api/works", workRoutes);
 app.use("api/sessions", sessionsRoutes);
 
 app.listen(8800, () => {

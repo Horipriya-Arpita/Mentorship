@@ -5,8 +5,8 @@ import Message from "../../components/message/Message";
 
 export default function Messenger(){
     return (
-        
-        
+
+
         <div className="messenger">
             <div className="chatMenu">
                 <div className="chatMenuWrapper">
@@ -44,6 +44,6 @@ export default function Messenger(){
                 <div className="chatOnlineWrapper">Online</div>
             </div> */}
         </div>
-        
+
     )
 }
