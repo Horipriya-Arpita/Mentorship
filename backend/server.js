@@ -48,12 +48,14 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/user_details",userDetailsRoutes);
-app.use("/api/skill_set", skillSetRoutes);
+app.use("/api/skills", skillSetRoutes);
 app.use("/api/user_contacts", userContactRoutes);
 app.use("/api/relationships", relationshipRoutes);
 app.use("/api/profile_flexboxs", profileFlexboxRoutes);
 app.use("/api/works", workRoutes);
+
 app.use("/api/educations", educationRoutes);
+
 app.use("/api/relationships", relationshipRoutes);
 app.use("/api/profile_flexboxs", profileFlexboxRoutes);
 app.use("/api/works", workRoutes);
