@@ -1,6 +1,10 @@
 @import "../../style.scss";
 
 .leftBar {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background: 
+          url("../../assets/105.jpg")
+            center;
   @include themify($themes) {
     
     flex: 2;
@@ -19,8 +23,9 @@
       display: none;
     }
 
-    h1{
-      margin-left: 0px;
+    h2{
+      margin-left: 60px;
+      margin-top: 50px;
       font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 

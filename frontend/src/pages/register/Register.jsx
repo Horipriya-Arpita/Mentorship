@@ -32,11 +32,8 @@ const Register = () => {
     <div className="register">
       <div className="card">
         <div className="left">
-          <h1>Lama Social.</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cum,
-            alias totam numquam ipsa exercitationem dignissimos, error nam,
-            consequatur.
+          <h1>Mentorship Management.</h1>
+          <p>The Mentorship Management App streamlines mentor-mentee connections, enabling efficient session scheduling and knowledge sharing. It prioritizes user-friendly interfaces for a seamless and productive mentoring experience.
           </p>
           <span>Do you have an account?</span>
           <Link to="/login">

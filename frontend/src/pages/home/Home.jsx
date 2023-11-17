@@ -39,6 +39,7 @@ const Home = () => {
 export default Home*/
 
 // Home.jsx
+import "./home.scss"
 import { UserDetails } from "../../components/user_details/UserDetails";
 import { Sessions } from "../../components/sessions/Sessions";
 import { useContext } from "react";
@@ -47,7 +48,7 @@ import { UserContacts } from "../../components/user_contacts/UserContacts";
 import { SkillSet } from "../../components/skillSet/SkillSet";
 import { ProfileFlexbox } from "../../components/profileFlexbox/profileFlexbox";
 
-const Home = () => {
+const Home = () => { 
   const { currentUser } = useContext(AuthContext);
 
   return (
@@ -56,7 +57,6 @@ const Home = () => {
       <UserDetails />
       <Sessions />
       <SkillSet />
-
       <UserContacts />
       <ProfileFlexbox />
    

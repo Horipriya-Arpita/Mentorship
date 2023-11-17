@@ -2,6 +2,7 @@
 
 
 .navbar {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   @include themify($themes) {
     display: flex;
     align-items: center;
@@ -11,7 +12,9 @@
     border-bottom: 1px solid themed("border");
     position: sticky;
     top: 0;
-    background-color: themed("bg");
+    background: 
+          url("../../assets/109.jpg")
+            center;
     color:themed("textColor");
     z-index: 999;
 
@@ -56,6 +59,10 @@
       display: flex;
       align-items: center;
       gap: 20px;
+      
+      span {
+        
+      }
 
       @include mobile{
         display: none;
@@ -72,14 +79,13 @@
         }
 
         img {
-          width: 30px;
-          height: 30px;
+          width: 50px;
+          height: 50px;
           border-radius: 50%;
           object-fit: cover;
         }
 
-        // span {
-        // }
+        
       }
     }
   }

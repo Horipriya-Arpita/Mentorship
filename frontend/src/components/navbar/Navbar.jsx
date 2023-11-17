@@ -19,26 +19,29 @@ export const Navbar = () => {
   return (
     <div className="navbar">
       <div className="left">
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <span>lamasocial</span>
+        <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <span>MENTORSHIP <br /> MANAGEMENT.</span>
         </Link>
-        <HomeOutlinedIcon />
+        <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <HomeOutlinedIcon />
+        </Link>
          {darkMode ? (
           <WbSunnyOutlinedIcon onClick={toggle} />
         ) : (
           <DarkModeOutlinedIcon onClick={toggle} />
         )} 
         
-        <GridViewOutlinedIcon />
-        <div className="search">
-          <SearchOutlinedIcon />
-          <input type="text" placeholder="Search..." />
-        </div>
       </div>
       <div className="right">
-        <PersonOutlinedIcon />
-        <EmailOutlinedIcon />
-        <NotificationsOutlinedIcon />
+        <Link to="/profile/1" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <PersonOutlinedIcon />
+        </Link>
+        <Link to="profile/Messenger" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <EmailOutlinedIcon />
+        </Link>
+        <Link to="http://localhost:3000/" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <NotificationsOutlinedIcon />
+        </Link>
         <div className="user">
           {/* <img
             src={"/upload/" + currentUser.profilePic}
@@ -46,7 +49,7 @@ export const Navbar = () => {
           /> */}
           <img src="https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
           {/* <span>{currentUser.name}</span> */}
-          <Link to={`/profile/${currentUser.id}`} style={{ textDecoration: "none" }}>
+          <Link to={`/profile/${currentUser.id}`} style={{ textDecoration: "none", color: 'inherit' }}>
           <span>{currentUser.name}</span>
           </Link>
           
