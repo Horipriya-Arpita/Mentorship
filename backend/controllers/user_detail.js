@@ -59,13 +59,7 @@ export const addDetails = async (req, res) => {
 
     console.log("Adding details for UserID: " + userId);
 
-    const {
-      user_type,
-      gender,
-      bio,
-      country,
-      language,
-    } = req.body;
+    const { user_type, gender, bio, country, language } = req.body;
 
     const insertQuery = `
       INSERT INTO user_details (id, user_type, gender, bio, country, language)
@@ -78,14 +72,7 @@ export const addDetails = async (req, res) => {
       language = VALUES(language);
     `;
 
-    const values = [
-      userId,
-      user_type,
-      gender,
-      bio,
-      country,
-      language,
-    ];
+    const values = [userId, user_type, gender, bio, country, language];
 
     try {
       await db.query(insertQuery, values);

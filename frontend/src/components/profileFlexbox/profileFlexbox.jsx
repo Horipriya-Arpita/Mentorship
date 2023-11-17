@@ -61,3 +61,43 @@
 // };
 
 // export default ProfileFlexbox;
+
+import "./profileFlexbox.scss";
+import { useQuery } from "@tanstack/react-query";
+import { makeRequest } from "../../axios";
+
+export const ProfileFlexbox = () => {
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["profile_flexboxs"],
+    queryFn: () =>
+      makeRequest.get("/profile_flexboxs").then((res) => {
+        return res.data;
+      }),
+  }, console.log(1));
+
+  console.log("klasjd "+data);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  return (
+    <div className="Profile Flexbox">
+      {data && (
+        <div>
+          <h2>User Details</h2>
+          <p>name: {data[0].name}</p>
+          {/* <p>profile pic: {data[0].profile_pic}</p> */}
+          <p>skill name: {data[0].skill_name}</p>
+          
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ProfileFlexbox;

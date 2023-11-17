@@ -28,7 +28,7 @@ import Profile from "./pages/profile/Profile";
 import "./style.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
-import { AuthContext } from "./context/AuthContext";
+import { AuthContext } from "./context/authContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Sessions from "./pages/sessions/Sessions";
 import Events from "./pages/events/Events";
