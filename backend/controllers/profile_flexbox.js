@@ -4,6 +4,8 @@ import jwt from "jsonwebtoken";
 export const getProfileFlexbox = async (req, res) => {
   const token = req.cookies.accessToken;
 
+  console.log(token);
+
   if (!token) {
     return res.status(401).json("Not logged in!");
   }
