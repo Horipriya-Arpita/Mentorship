@@ -1,6 +1,6 @@
 import "../profileForm/experienceForm.scss";
 import React, { useState } from "react";
-import YearPicker from "react-year-picker";
+import DatePicker from "react-datepicker";
 import { useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 
@@ -198,20 +198,25 @@ const ExperienceForm = () => {
             />
 
             <label>Start Year:</label>
-            <YearPicker
-              value={experience.startYear}
+            <DatePicker
+            dateFormat="yyyy"
+              selected={experience.startYear}
+              value= {experience.startYear}
               onChange={(year) =>
                 handleWorkExperienceChange(index, "startYear", year)
               }
+              showYearPicker
             />
 
             <label>End Year:</label>
-            <YearPicker
+            <DatePicker
+              dateFormat="yyyy"
+              selected={experience.endYear}
               value={experience.endYear}
               onChange={(year) =>
                 handleWorkExperienceChange(index, "endYear", year)
               }
-              className="year-input"
+              showYearPicker
             />
           </div>
         ))}
@@ -247,21 +252,25 @@ const ExperienceForm = () => {
             />
 
             <label>Start Year:</label>
-            <YearPicker
+            <DatePicker
+              dateFormat="yyyy"
+              selected={education.startYear}
               value={education.startYear}
               onChange={(year) =>
                 handleEducationChange(index, "startYear", year)
               }
-              className="year-input"
+              showYearPicker
             />
 
             <label>End Year:</label>
-            <YearPicker
+            <DatePicker
+              dateFormat="yyyy"
+              selected={education.endYear}
               value={education.endYear}
               onChange={(year) =>
                 handleEducationChange(index, "endYear", year)
               }
-              className="year-input"
+              showYearPicker
             />
           </div>
         ))}
