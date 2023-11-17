@@ -9,7 +9,7 @@ import relationshipRoutes from "./routes/relationships.js"
 import profileFlexboxRoutes from "./routes/profile_flexboxs.js"
 import workRoutes from "./routes/works.js";
 import educationRoutes from "./routes/educations.js";
-import sessionsRoutes from ".routes/sessions.js"
+import sessionsRoutes from "./routes/sessions.js"
 
 import cors from "cors";
 import multer from "multer";
@@ -53,7 +53,6 @@ app.use("/api/user_contacts", userContactRoutes);
 app.use("/api/relationships", relationshipRoutes);
 app.use("/api/profile_flexboxs", profileFlexboxRoutes);
 app.use("/api/works", workRoutes);
-app.use("/api/educations", educaationRoutes);
 app.use("/api/relationships", relationshipRoutes);
 app.use("/api/profile_flexboxs", profileFlexboxRoutes);
 app.use("/api/works", workRoutes);

@@ -114,3 +114,7 @@ export const addSkill = (req, res) => {
   });
 };
 */
+
+export const addSkill = (req, res) => {
+  
+}
