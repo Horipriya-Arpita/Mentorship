@@ -71,3 +71,24 @@ CREATE TABLE relationships (
     FOREIGN KEY (followedUserId) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+
+-- Create Session table
+CREATE TABLE Session (
+    SessionID INT PRIMARY KEY AUTO_INCREMENT,
+    Title VARCHAR(255),
+    Mentor VARCHAR(255),
+    Date DATE,
+    StartTime TIME,
+    Audience VARCHAR(255),
+    Link VARCHAR(255)
+);
+-- Insert 5 sample entries
+INSERT INTO Session (Title, Mentor, Date, StartTime, Audience, Link)
+VALUES
+    ('Web Development Basics', 'John Doe', '2023-11-15', '09:00:00', 'Beginner', 'http://example.com/session1'),
+    ('React Fundamentals', 'Jane Smith', '2023-11-16', '14:30:00', 'Intermediate', 'http://example.com/session2'),
+    ('Node.js Workshop', 'Alice Wonderland', '2023-11-18', '11:00:00', 'Advanced', 'http://example.com/session3'),
+    ('Python Programming', 'Bob Builder', '2023-11-20', '16:00:00', 'Beginner', 'http://example.com/session4'),
+    ('Database Design Principles', 'Eve Explorer', '2023-11-22', '13:30:00', 'Intermediate', 'http://example.com/session5'),
+    ('Web Development Basics', 'John Doe', '2023-11-15', '09:00:00', 'Beginner', 'http://example.com/session1'),
+    ('React Fundamentals', 'Jane Smith', '2023-11-16', '14:30:00', 'Intermediate', 'http://example.com/session2');
