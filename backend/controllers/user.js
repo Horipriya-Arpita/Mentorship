@@ -18,7 +18,7 @@ export const getUser = (req, res) => {
     }
 
     const { password, ...info } = data[0];
-    console.log("Fetched user details:", info);
+    //console.log("Fetched user details:", info);
 
     return res.json(info);
 });

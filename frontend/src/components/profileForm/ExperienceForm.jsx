@@ -1,8 +1,12 @@
 import "../../pages/profile/profile.scss";
 import React, { useState } from "react";
 import YearPicker from "react-year-picker";
+import { useQueryClient } from "@tanstack/react-query";
+import { makeRequest } from "../../axios";
+
 
 const ExperienceForm = () => {
+  const queryClient = useQueryClient();
   const [expertiseOptions] = useState([
     "Problem Solving",
     "Web Development",
@@ -73,6 +77,37 @@ const ExperienceForm = () => {
     setEducations(updatedEducations);
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    console.log("Selected Expertise:", selectedExpertise);
+    console.log("Work Experiences:", workExperiences);
+    console.log("Educations:", educations);
+
+    try {
+      // Send a POST request to add skills
+      await makeRequest.post("/skills/add", {
+        skills: selectedExpertise,
+      });
+
+      // Send a POST request to add work experiences
+      await makeRequest.post("/work/add", {
+        experiences: workExperiences,
+      });
+
+      // Send a POST request to add educations
+      await makeRequest.post("/educations/add", {
+        educations: educations,
+      });
+
+      // Invalidate relevant queries to refetch the updated data
+      queryClient.invalidateQueries("skills");
+      queryClient.invalidateQueries("work");
+      queryClient.invalidateQueries("educations");
+    } catch (error) {
+      console.error("Error updating user details:", error);
+    }
+  };
 
   return (
     <form className="experience-form">
@@ -126,11 +161,11 @@ const ExperienceForm = () => {
 
             <label>Start Year:</label>
             <YearPicker
-              value ={experience.startYear}
-              onChange={(year) =>
-                handleWorkExperienceChange(index, "startYear", year)
-              }
-            />
+          value={experience.companyStartYear}
+          onChange={(year) =>
+            handleWorkExperienceChange(index, "companyStartYear", year)
+          }
+        />
 
             <label>End Year:</label>
             <YearPicker
@@ -183,10 +218,14 @@ const ExperienceForm = () => {
                 handleEducationChange(index, "endYear", year)
               }
             />
+
+            <button type="button" onClick={addEducation}>
+                Add Education
+              </button>
           </div>
         ))}
-        <button type="button" onClick={addEducation}>
-          Add Education
+        <button type="submit" onClick={handleSubmit}>
+          Update
         </button>
       </div>
 
