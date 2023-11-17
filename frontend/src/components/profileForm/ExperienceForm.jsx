@@ -1,4 +1,4 @@
-import "../../pages/profile/profile.scss";
+import "../profileForm/experienceForm.scss";
 import React, { useState } from "react";
 import YearPicker from "react-year-picker";
 
@@ -130,6 +130,7 @@ const ExperienceForm = () => {
               onChange={(year) =>
                 handleWorkExperienceChange(index, "startYear", year)
               }
+              className="year-input" 
             />
 
             <label>End Year:</label>
@@ -138,6 +139,7 @@ const ExperienceForm = () => {
               onChange={(year) =>
                 handleWorkExperienceChange(index, "endYear", year)
               }
+              className="year-input" 
             />
           </div>
         ))}
@@ -174,6 +176,7 @@ const ExperienceForm = () => {
               onChange={(year) =>
                 handleEducationChange(index, "startYear", year)
               }
+              className="year-input" // Assign the CSS classes here
             />
 
             <label>End Year:</label>
@@ -182,6 +185,7 @@ const ExperienceForm = () => {
               onChange={(year) =>
                 handleEducationChange(index, "endYear", year)
               }
+              className="year-input" 
             />
           </div>
         ))}

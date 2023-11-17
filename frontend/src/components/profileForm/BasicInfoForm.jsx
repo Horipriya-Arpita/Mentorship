@@ -184,7 +184,7 @@ export default BasicInfoForm;
 */
 // ... (imports)
 
-import "../../pages/profile/profile.scss";
+import "../profileForm/basicInfoForm.scss";
 import React, { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../profileForm/socialForm.scss';
 
 const SocialForm = () => {
   const [linkedin, setLinkedin] = useState("");
