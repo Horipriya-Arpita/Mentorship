@@ -6,6 +6,8 @@ import { makeRequest } from "../../axios";
 
 const ExperienceForm = () => {
   const queryClient = useQueryClient();
+  
+  /*Skill Portion starts*/ 
   const [expertiseOptions] = useState([
     "Problem Solving",
     "Web Development",
@@ -49,15 +51,19 @@ const ExperienceForm = () => {
       skills: selectedExpertise,
     };
   
-    console.log("Selected Expertise: papap", JSON.stringify(formData.skills));
+    console.log("Selected Expertise:", formData.skills);
+  
     try {
-      await makeRequest.post("/skills/add", JSON.stringify(formData.skills));
+      await makeRequest.post("/skills/add", formData);
       queryClient.invalidateQueries("skills");
     } catch (error) {
       console.error("Error updating expertise:", error);
     }
   };
   
+  /*Skill Portion ends*/ 
+
+  /*work Portion starts*/ 
 
   const [workExperiences, setWorkExperiences] = useState([
     { company: "", startYear: "", endYear: "" },
@@ -87,6 +93,9 @@ const ExperienceForm = () => {
     }
   };
 
+  
+  /*work Portion ends*/ 
+
   const [educations, setEducations] = useState([
     { institution: "", degree: "", startYear: "", endYear: "" },
   ]);
@@ -103,6 +112,8 @@ const ExperienceForm = () => {
     updatedEducations[index][field] = value;
     setEducations(updatedEducations);
   };
+
+  console.log("nana" + [educations]);
 
   const updateEducations = async () => {
     try {
