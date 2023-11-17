@@ -12,6 +12,7 @@ export default App;*/
 
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import Connections from "./pages/connections/Connections";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -29,6 +30,8 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Sessions from "./pages/sessions/Sessions";
+
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -80,6 +83,14 @@ function App() {
           path: "/profile/:id",
           element: <Profile />,
         },
+        {
+          path: "/profile/Connections",
+          element: <Connections />,
+        },
+        {
+          path: "/profile/Sessions",
+          element: <Sessions />,
+        },
       ],
     },
     {
@@ -90,6 +101,7 @@ function App() {
       path: "/register",
       element: <Register />,
     },
+    
   ]);
 
   return (

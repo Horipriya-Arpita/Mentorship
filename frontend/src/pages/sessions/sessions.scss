@@ -1,0 +1,48 @@
+.sessions {
+    padding: 20px;
+    margin-left: 100px;
+  
+    h1 {
+      color: #333;
+    }
+  
+    .session-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+  
+      .session {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center the box horizontally */
+        width: 500px; /* Set the initial width to 3 times larger */
+        height: 150px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background: linear-gradient(to right, #4e8bf9, #3d72b4); /* Blue gradient */
+  
+        &:hover {
+          background: #808080; /* Grey background on hover */
+        }
+  
+        .details {
+          h3 {
+            margin: 10px;
+            font-size: larger;
+            color: #fff; /* White text color */
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          }
+  
+          p {
+            font-size: medium;
+            margin: 0;
+            color: #fff; /* Light grey text color */
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          }
+        }
+      }
+    }
+  }
+  
