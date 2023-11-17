@@ -1,3 +1,4 @@
+import "../../pages/profile/profile.scss";
 import React, { useState } from "react";
 
 const ExperienceForm = () => {
@@ -93,44 +94,36 @@ const ExperienceForm = () => {
       <div>
         <h3>Work Experience</h3>
         {workExperiences.map((experience, index) => (
-          
+          <div key={index} className="form-group">
+            <label>Company:</label>
+            <input
+              type="text"
+              value={experience.company}
+              onChange={(e) =>
+                handleWorkExperienceChange(index, "company", e.target.value)
+              }
+            />
 
-          <div key={index}>
-            <br></br>
-            <label>
-              Company:
-              <input
-                type="text"
-                value={experience.company}
-                onChange={(e) =>
-                  handleWorkExperienceChange(index, "company", e.target.value)
-                }
-              />
-            </label>
-            <label>
-              Start Date:
-              <input
-                type="date"
-                value={experience.startDate}
-                onChange={(e) =>
-                  handleWorkExperienceChange(index, "startDate", e.target.value)
-                }
-              />
-            </label>
-            <label>
-              End Date:
-              <input
-                type="date"
-                value={experience.endDate}
-                onChange={(e) =>
-                  handleWorkExperienceChange(index, "endDate", e.target.value)
-                }
-              />
-            </label>
+            <label>Start Date:</label>
+            <input
+              type="date"
+              value={experience.startDate}
+              onChange={(e) =>
+                handleWorkExperienceChange(index, "startDate", e.target.value)
+              }
+            />
+
+            <label>End Date:</label>
+            <input
+              type="date"
+              value={experience.endDate}
+              onChange={(e) =>
+                handleWorkExperienceChange(index, "endDate", e.target.value)
+              }
+            />
           </div>
         ))}
         <button type="button" onClick={addWorkExperience}>
-          <br />
           Add Work Experience
         </button>
       </div>
