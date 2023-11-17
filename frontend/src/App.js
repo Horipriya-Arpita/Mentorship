@@ -28,11 +28,12 @@ import Profile from "./pages/profile/Profile";
 import "./style.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
-import { AuthContext } from "./context/authContext";
+import { AuthContext } from "./context/AuthContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Sessions from "./pages/sessions/Sessions";
 import Events from "./pages/events/Events";
 import Courses from "./pages/courses/Courses";
+import Messenger from "./pages/messenger/Messenger";
 
 
 function App() {
@@ -100,6 +101,10 @@ function App() {
         {
           path: "/profile/Courses",
           element: <Courses />,
+        },
+        {
+          path: "/profile/Messenger",
+          element: <Messenger />,
         },
       ],
     },

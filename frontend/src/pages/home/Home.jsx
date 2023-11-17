@@ -41,7 +41,7 @@ export default Home*/
 // Home.jsx
 import { UserDetails } from "../../components/user_details/UserDetails";
 import { useContext } from "react";
-import { AuthContext } from "../../context/authContext";
+import { AuthContext } from "../../context/AuthContext";
 import { UserContacts } from "../../components/user_contacts/UserContacts";
 import { SkillSet } from "../../components/skillSet/SkillSet";
 import { ProfileFlexbox } from "../../components/profileFlexbox/profileFlexbox";

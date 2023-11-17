@@ -1,59 +1,73 @@
+import "../../pages/profile/profile.scss";
 import React, { useState } from "react";
 import '../profileForm/socialForm.scss';
+import { makeRequest } from "../../axios";
 
-const SocialForm = () => {
-  const [linkedin, setLinkedin] = useState("");
-  const [facebook, setFacebook] = useState("");
-  const [twitter, setTwitter] = useState("");
 
-  const handleLinkedinChange = (e) => {
-    setLinkedin(e.target.value);
-  };
+const SocialForm = (userId) => {
+  const [socialFormData, setSocialFormData] = useState({
+    linkedin: '',
+    facebook: '',
+    twitter: '',
+    github: '',
+  });
 
-  const handleFacebookChange = (e) => {
-    setFacebook(e.target.value);
-  };
+  const handleUpdate = async () => {
+    try {
+      
+      // Assuming you have the user ID stored in some variable
+     /* get user ID from somewhere */
 
-  const handleTwitterChange = (e) => {
-    setTwitter(e.target.value);
-  };
+      await makeRequest.post('/user_contacts/add', {
+        ...socialFormData,
+        userID: userId,
+      });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Perform any actions with the social links (e.g., update the database)
-    console.log("Updating social links:", { linkedin, facebook, twitter });
+      // Optionally, you can reset the form or perform any other actions
+      setSocialFormData({
+        linkedin: '',
+        facebook: '',
+        twitter: '',
+        github: '',
+      });
+
+      console.log('Contacts updated successfully');
+    } catch (error) {
+      console.error('Error updating contacts:', error);
+      // Handle error as needed
+    }
   };
 
   return (
-    <form className="social-form" onSubmit={handleSubmit}>
+    <form className="social-form">
       <label>
         Linkedin URL:
         <input
           type="text"
-          value={linkedin}
-          onChange={handleLinkedinChange}
-          placeholder="Enter Linkedin URL"
+          placeholder="LinkedIn"
+          value={socialFormData.linkedin}
+          onChange={(e) => setSocialFormData({ ...socialFormData, linkedin: e.target.value })}
         />
       </label>
       <label>
         Facebook URL:
         <input
           type="text"
-          value={facebook}
-          onChange={handleFacebookChange}
-          placeholder="Enter Facebook URL"
+          placeholder="Facebook"
+          value={socialFormData.facebook}
+          onChange={(e) => setSocialFormData({ ...socialFormData, facebook: e.target.value })}
         />
       </label>
       <label>
         Twitter URL:
         <input
           type="text"
-          value={twitter}
-          onChange={handleTwitterChange}
-          placeholder="Enter Twitter URL"
+          placeholder="Twitter"
+          value={socialFormData.twitter}
+          onChange={(e) => setSocialFormData({ ...socialFormData, twitter: e.target.value })}
         />
       </label>
-      <button type="submit">Update</button>
+      <button onClick={handleUpdate}>Update</button>
     </form>
   );
 };
