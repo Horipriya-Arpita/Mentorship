@@ -7,6 +7,7 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import LogoutIcon from '@mui/icons-material/Logout';
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
@@ -33,6 +34,9 @@ export const Navbar = () => {
         
       </div>
       <div className="right">
+        <Link to="http://localhost:3000/login" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <LogoutIcon />
+        </Link>
         <Link to="/profile/1" style={{ textDecoration: 'none', color: 'inherit' }}>
           <PersonOutlinedIcon />
         </Link>
