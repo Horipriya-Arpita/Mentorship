@@ -64,11 +64,6 @@ export const getProfileFlexbox = (req, res) => {
 
     console.log("UserID: " + userId);
 
-    // const q = `SELECT ud.*, u.id AS userId, name, profile_pic, s.skill_name
-    // FROM user_details AS ud
-    // JOIN users AS u ON u.id = ud.id
-    // JOIN skill_set AS s ON s.userid = u.id`;
-
     const q = `
   SELECT
     ud.*, 
