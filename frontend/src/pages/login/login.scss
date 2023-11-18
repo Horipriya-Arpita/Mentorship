@@ -13,6 +13,16 @@
       border-radius: 40px;
       min-height: 600px;
       overflow: hidden;
+
+      .error-message {
+        color: red;
+        margin-top: 10px;
+      }
+      
+      .success-message {
+        color: green;
+        margin-top: 10px;
+      }
   
       .left {
         flex: 1;
