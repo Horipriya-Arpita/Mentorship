@@ -1,0 +1,38 @@
+INSERT INTO user_details 
+(id, user_type, gender, bio, country, language, cover_pic, profile_pic) 
+VALUES (2, 'student', 'male', 'This is a student bio.', 'Bangladesh', 'English', 'student.jpg', 'profile.jpg'), 
+(3, 'teacher', 'female', 'This is a teacher bio.', 'Bangladesh', 'Bengali', 'teacher.jpg', 'profile.jpg'),
+(4, 'engineer', 'male', 'This is an engineer bio.', 'Bangladesh', 'English', 'engineer.jpg', 'profile.jpg'), 
+(5, 'doctor', 'female', 'This is a doctor bio.', 'Bangladesh', 'Bengali', 'doctor.jpg', 'profile.jpg'), 
+(6, 'lawyer', 'male', 'This is a lawyer bio.', 'Bangladesh', 'English', 'lawyer.jpg', 'profile.jpg');
+
+
+-- Insert into Work --
+
+INSERT INTO work (userid, company, start_year, end_year) VALUES 
+(3, 'Company D', '2023-11-08', '2023-11-14'), 
+(3, 'Company E', '2023-11-15', '2023-11-21'), 
+(3, 'Company F', '2023-11-22', '2023-11-28');
+
+INSERT INTO work (userid, company, start_year, end_year) VALUES 
+(2, 'Company A', '2023-11-08', '2023-11-14'), 
+(2, 'Company B', '2023-11-15', '2023-11-21'), 
+(2, 'Company C', '2023-11-22', '2023-11-28');
+
+-- Insert into Contacts --
+INSERT INTO `user_contacts`(`userLinkedin`, `userFacebook`, `userX`, `userGithub`, `userID`) VALUES 
+('john-doe-linkedin', 'john-doe-facebook', 'john-doe-x', 'john-doe-github', 1);
+
+INSERT INTO `user_contacts`(`id`, `userLinkedin`, `userFacebook`, `userX`, `userGithub`, `userID`) VALUES 
+(2, 'jane-doe-linkedin', 'jane-doe-facebook', 'jane-doe-x', 'jane-doe-github', 2);
+
+INSERT INTO `user_contacts`(`id`, `userLinkedin`, `userFacebook`, `userX`, `userGithub`, `userID`) VALUES 
+(3, 'peter-parker-linkedin', 'peter-parker-facebook', 'peter-parker-x', 'peter-parker-github', 3);
+
+-- Insert into Education --
+
+INSERT INTO education (userid, institution, degree, start_year, end_year) VALUES 
+(2, 'University of Dhaka', 'Bachelor of Science in Computer Science', '2020-08-01', '2024-08-31'), 
+(2, 'Sylhet Engineering College', 'Higher Secondary Certificate in Science', '2018-01-01', '2019-12-31'), 
+(3, 'Bangladesh University of Engineering and Technology', 'Bachelor of Science in Electrical and Electronics Engineering', '2020-08-01', '2024-08-31'), 
+(3, 'Dhaka University', 'Higher Secondary Certificate in Science', '2018-01-01', '2019-12-31');
