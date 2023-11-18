@@ -37,7 +37,7 @@ const RightBar = () => {
             <div className="buttons">
               {/* Pass session information to DetailsBox */}
               <button onClick={() => toggleDetails({
-                mentorName: 'Jane Doe',
+                mentorName: 'Jahid Hasan',
                 mentorExpertise: 'Web Development',
                 sessionTitle: 'Basic Web Dev',
                 sessionDate: '20.11.23',
@@ -58,12 +58,12 @@ const RightBar = () => {
                 src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
                 alt=""
               />
-              <span>  Ramuma Tatata<br></br>  Date: 24 November 2023<br></br>  Time : 6:00 PM</span>
+              <span>  Tonmoy Bhowmik<br></br>  Date: 24 November 2023<br></br>  Time : 6:00 PM</span>
             </div>
             <div className="buttons">
               {/* Pass session information to DetailsBox */}
               <button onClick={() => toggleDetails({
-                mentorName: 'Ramuma Tatata',
+                mentorName: 'Sanzida Afrin',
                 mentorExpertise: 'Graphics Design',
                 sessionTitle: 'Advanced Graphics Design',
                 sessionDate: '24.11.23',
@@ -82,12 +82,12 @@ const RightBar = () => {
                 src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
                 alt=""
               />
-              <span>  Hoccah Matata<br></br>  Date: 29 November 2023<br></br>  Time : 6:00 PM</span>
+              <span>  Jisan Ahmed<br></br>  Date: 29 November 2023<br></br>  Time : 6:00 PM</span>
             </div>
             <div className="buttons">
               {/* Pass session information to DetailsBox */}
               <button onClick={() => toggleDetails({
-                mentorName: 'Hoccah Matata',
+                mentorName: 'Shihabuzzaman',
                 mentorExpertise: 'Block Chain Development',
                 sessionTitle: 'Advanced Graphics Design',
                 sessionDate: '29.11.23',
@@ -110,7 +110,7 @@ const RightBar = () => {
                 alt=""
               />
               <p>
-                <span>Graphics Design session <br /> by Jane Doe <br /> </span> Date : 11.11.23
+                <span>Graphics Design session <br /> by Zawad Chowdhury <br /> </span> Date : 11.11.23
               </p>
             </div>
             <span>1 week ago</span>
@@ -134,7 +134,7 @@ const RightBar = () => {
                 alt=""
               />
               <p>
-                <span>Data Science session <br /> by Abdur Rahman <br /> </span> Date : 08.05.23
+                <span>Data Science session <br /> by Sumonto Saha <br /> </span> Date : 08.05.23
               </p>
             </div>
             <span>6 months ago</span>
@@ -146,7 +146,7 @@ const RightBar = () => {
                 alt=""
               />
               <p>
-                <span>UI/UX Design session <br /> by Mita Chowdhury <br /> </span> Date : 07.03.23
+                <span>UI/UX Design session <br /> by Sajib Chowdhury <br /> </span> Date : 07.03.23
               </p>
             </div>
             <span>8 months ago</span>
@@ -161,7 +161,7 @@ const RightBar = () => {
                 alt=""
               />
               <div className="online" />
-              <span>Jane Doe</span>
+              <span>Ridwan Siam</span>
             </div>
           </div>
           <div className="user">
@@ -191,7 +191,7 @@ const RightBar = () => {
                 alt=""
               />
               <div className="online" />
-              <span>Mita Chowdhury</span>
+              <span>Rifat Shariar</span>
             </div>
           </div>
           <div className="user">
@@ -231,7 +231,7 @@ const RightBar = () => {
                 alt=""
               />
               <div className="online" />
-              <span>Neha Akter</span>
+              <span>Nayem Bhuiyan</span>
             </div>
           </div>
           <div className="user">
@@ -241,7 +241,7 @@ const RightBar = () => {
                 alt=""
               />
               <div className="online" />
-              <span>Meem Begum</span>
+              <span>Sanajana Afrin</span>
             </div>
           </div>
           

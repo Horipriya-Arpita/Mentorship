@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import "./login.scss";
@@ -9,8 +9,9 @@ const Login = () => {
     password: "",
   });
   const [err, setErr] = useState(null);
+  const [success, setSuccess] = useState(null); // Added success state
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -21,21 +22,37 @@ const Login = () => {
     e.preventDefault();
     try {
       await login(inputs);
-      navigate("/")
+      setSuccess("Login successful!"); // Set success message
+      setErr(null); // Reset error message
     } catch (err) {
       setErr(err.response.data);
+      setSuccess(null); // Reset success message
     }
   };
 
-  
+  useEffect(() => {
+    if (success) {
+      // Delay navigation to allow success message to be displayed
+      const timeoutId = setTimeout(() => {
+        navigate("/");
+      }, 1000); // Adjust the delay time as needed
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [success, navigate]);
+
   return (
     <div className="login">
       <div className="card">
         <div className="left">
           <h1>Mentorship Management.</h1>
-          <p>The Mentorship Management App streamlines mentor-mentee connections, enabling efficient session scheduling and knowledge sharing. It prioritizes user-friendly interfaces for a seamless and productive mentoring experience.
+          <p>
+            The Mentorship Management App streamlines mentor-mentee connections,
+            enabling efficient session scheduling and knowledge sharing. It
+            prioritizes user-friendly interfaces for a seamless and productive
+            mentoring experience.
           </p>
-          <span>Don't you have an account?</span>
+          <span>Don't have an account?</span>
           <Link to="/register">
             <button>Register</button>
           </Link>
@@ -55,7 +72,8 @@ const Login = () => {
               name="password"
               onChange={handleChange}
             />
-            {err && err}
+            {err && <div className="error-message">{err}</div>}
+            {success && <div className="success-message">{success}</div>}
             <button onClick={handleLogin}>Login</button>
           </form>
         </div>
