@@ -1,4 +1,14 @@
 import React, { useState } from 'react';
+import myLocalImage0 from "../../assets/1000.jpg";
+import myLocalImage1 from "../../assets/1001.jpg";
+import myLocalImage2 from "../../assets/1002.jpg";
+import myLocalImage3 from "../../assets/1003.jpg";
+import myLocalImage4 from "../../assets/1004.jpg";
+import myLocalImage5 from "../../assets/1005.jpg";
+import myLocalImage6 from "../../assets/1006.jpg";
+import myLocalImage7 from "../../assets/1007.jpeg";
+import myLocalImage8 from "../../assets/1008.jpeg";
+import myLocalImage9 from "../../assets/1009.jpg";
 import DetailsBox from './DetailsBox';
 import "./rightBar.scss";
 
@@ -28,7 +38,7 @@ const RightBar = () => {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={myLocalImage0}
                 alt=""
               />
               <span>  Jane Doe<br></br>  Date: 20 November 2023<br></br>  Time : 6:00 PM</span>
@@ -55,8 +65,9 @@ const RightBar = () => {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={myLocalImage1}
                 alt=""
+                style={{ maxWidth: "100%" }}
               />
               <span>  Tonmoy Bhowmik<br></br>  Date: 24 November 2023<br></br>  Time : 6:00 PM</span>
             </div>
@@ -79,7 +90,7 @@ const RightBar = () => {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={myLocalImage2}
                 alt=""
               />
               <span>  Jisan Ahmed<br></br>  Date: 29 November 2023<br></br>  Time : 6:00 PM</span>
@@ -106,7 +117,7 @@ const RightBar = () => {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={myLocalImage3}
                 alt=""
               />
               <p>
@@ -118,7 +129,7 @@ const RightBar = () => {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={myLocalImage4}
                 alt=""
               />
               <p>
@@ -130,7 +141,7 @@ const RightBar = () => {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={myLocalImage5}
                 alt=""
               />
               <p>
@@ -142,7 +153,7 @@ const RightBar = () => {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={myLocalImage6}
                 alt=""
               />
               <p>
@@ -157,7 +168,7 @@ const RightBar = () => {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={myLocalImage7}
                 alt=""
               />
               <div className="online" />
@@ -167,7 +178,7 @@ const RightBar = () => {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={myLocalImage8}
                 alt=""
               />
               <div className="online" />
@@ -177,7 +188,7 @@ const RightBar = () => {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={myLocalImage9}
                 alt=""
               />
               <div className="online" />
@@ -187,7 +198,7 @@ const RightBar = () => {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={myLocalImage2}
                 alt=""
               />
               <div className="online" />
@@ -197,7 +208,7 @@ const RightBar = () => {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={myLocalImage4}
                 alt=""
               />
               <div className="online" />
@@ -207,7 +218,7 @@ const RightBar = () => {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={myLocalImage6}
                 alt=""
               />
               <div className="online" />
@@ -217,7 +228,7 @@ const RightBar = () => {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={myLocalImage7}
                 alt=""
               />
               <div className="online" />
@@ -227,7 +238,7 @@ const RightBar = () => {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={myLocalImage6}
                 alt=""
               />
               <div className="online" />
@@ -237,7 +248,7 @@ const RightBar = () => {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={myLocalImage1}
                 alt=""
               />
               <div className="online" />
