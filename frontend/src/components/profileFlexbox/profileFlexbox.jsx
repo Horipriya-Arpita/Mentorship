@@ -2,6 +2,7 @@
 import "./profileFlexbox.scss";
 import { useQuery } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
+import { Link } from "react-router-dom";
 
 export const ProfileFlexbox = () => {
   const { isLoading, error, data } = useQuery({
@@ -40,7 +41,10 @@ export const ProfileFlexbox = () => {
             )}
           </div>
           <div className="buttons">
-            <button className="profile-detail-btn">Profile</button>
+          <Link to={`/profile/${user.userId}`} >
+          <span><button className="profile-detail-btn">Profile</button></span>
+          </Link>
+            {/* <button className="profile-detail-btn">Profile</button> */}
             <button className="follow">Follow</button>
           </div>
         </div>
