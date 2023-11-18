@@ -75,7 +75,7 @@ export const ProfileFlexbox = () => {
       }),
   }, console.log(1));
 
-  console.log("klasjd " + data);
+  console.log("flexbox " + data);
 
   if (isLoading) {
     return <div>Loading...</div>;
