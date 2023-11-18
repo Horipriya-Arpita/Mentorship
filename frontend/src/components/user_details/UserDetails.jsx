@@ -23,18 +23,17 @@ export const UserDetails = () => {
 
   return (
     <div className="user_details">
-      {data && (
+      {data && data.length > 0 ? (
         <div>
           <h2>User Details</h2>
-          <p className="bio"><strong>Bio:</strong> {data[0].bio}</p>
-          {/* <p>User ID: {data[0].userId}</p> */}
-          <p><strong>Name:</strong> {data[0].name}</p>
-          <p><strong>Gender:</strong> {data[0].gender}</p>
-          
-          <p><strong>Country:</strong> {data[0].country}</p>
-          <p> <strong>Language:</strong> {data[0].language}</p>
+          <p className="bio"><strong>Bio:</strong> {data[0].bio || "Not provided"}</p>
+          <p><strong>Name:</strong> {data[0].name || "Not provided"}</p>
+          <p><strong>Gender:</strong> {data[0].gender || "Not provided"}</p>
+          <p><strong>Country:</strong> {data[0].country || "Not provided"}</p>
+          <p><strong>Language:</strong> {data[0].language || "Not provided"}</p>
         </div>
-        
+      ) : (
+        <p>No user details available</p>
       )}
     </div>
   );
