@@ -14,6 +14,8 @@ import { WorkData } from "../../components/workData/WorkData";
 import { EducationData } from "../../components/educationData/EducationData";
 import { SkillSet } from "../../components/skillSet/SkillSet";
 import UserDetails from "../../components/user_details/UserDetails";
+import myLocalImage0 from "../../assets/1000.jpg";
+import myLocalImage1 from "../../assets/1001.jpg";
 
 const ProjectCard = ({ title, repoLink }) => {
   return (
@@ -76,12 +78,12 @@ export const Profile = () => {
         <div className="images">
           <img
             className="cover"
-            src="https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            src={myLocalImage0}
             alt="cover"
           />
           <img
             className="profilepic"
-            src="https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            src={myLocalImage1}
             alt="profilepic"
           />
         </div>

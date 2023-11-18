@@ -1,13 +1,12 @@
 import "../profileForm/experienceForm.scss";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 
 const ExperienceForm = () => {
   const queryClient = useQueryClient();
-  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
-
-  /*Skill Portion starts*/
+  
+  /*Skill Portion starts*/ 
   const [expertiseOptions] = useState([
     "Problem Solving",
     "Web Development",
@@ -50,25 +49,25 @@ const ExperienceForm = () => {
     const formData = {
       skills: selectedExpertise,
     };
-
+  
     console.log("Selected Expertise:", formData.skills);
-
+  
     try {
       await makeRequest.post("/skills/add", formData);
       queryClient.invalidateQueries("skills");
-      setShowSuccessAlert(true);
     } catch (error) {
       console.error("Error updating expertise:", error);
     }
   };
+  
+  /*Skill Portion ends*/ 
 
-  /*Skill Portion ends*/
-
-  /*work Portion starts*/
+  /*work Portion starts*/ 
 
   const [workExperiences, setWorkExperiences] = useState([
     { company: "", startYear: "", endYear: "" },
   ]);
+
 
   const addWorkExperience = () => {
     setWorkExperiences([
@@ -96,19 +95,20 @@ const ExperienceForm = () => {
         experiences: workExperiences,
       });
       queryClient.invalidateQueries("work");
-      setShowSuccessAlert(true);
     } catch (error) {
       console.error("Error updating work experiences:", error);
     }
   };
 
-  /*work Portion ends*/
+  
+  /*work Portion ends*/ 
 
-  /*education Portion starts*/
+  /*education Portion starts*/ 
 
   const [educations, setEducations] = useState([
     { institution: "", degree: "", startYear: "", endYear: "" },
   ]);
+
 
   const addEducation = () => {
     setEducations([
@@ -129,6 +129,7 @@ const ExperienceForm = () => {
     setEducations(updatedEducations);
   };
 
+
   // console.log("nana" + [educations]);
 
   const updateEducations = async () => {
@@ -138,23 +139,11 @@ const ExperienceForm = () => {
         educations: educations,
       });
       queryClient.invalidateQueries("educations");
-      setShowSuccessAlert(true);
     } catch (error) {
       console.error("Error updating educations:", error);
     }
   };
 
-  useEffect(() => {
-    if (showSuccessAlert) {
-      const timeout = setTimeout(() => {
-        setShowSuccessAlert(false);
-        window.alert("Update Successful!");
-      }, 3000); // Set timeout for 3 seconds (adjust as needed)
-
-      return () => clearTimeout(timeout);
-    }
-  }, [showSuccessAlert]);
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -163,7 +152,7 @@ const ExperienceForm = () => {
     updateEducations();
   };
 
-  /*education Portion ends*/
+  /*education Portion ends*/ 
   return (
     <form className="experience-form">
       {/* Expertise Section */}
@@ -212,7 +201,7 @@ const ExperienceForm = () => {
       </div>
 
       {/* Work Experience Section */}
-      <div>
+       <div>
         <h3>Work Experience</h3>
         {workExperiences.map((experience, index) => (
           <div key={index} className="form-group">
@@ -294,7 +283,6 @@ const ExperienceForm = () => {
             />
           </div>
         ))}
-
         <button type="button" onClick={addEducation}>
           Add Education
         </button>
