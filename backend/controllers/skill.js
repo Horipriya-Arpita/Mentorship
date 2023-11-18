@@ -10,7 +10,7 @@ export const getSkills = (req, res) => {
 
     const userid = userInfo.id;
 
-    const q = 'SELECT ss.*, u.id AS userId, name FROM skill_set AS ss JOIN users AS u WHERE u.id = ?';
+    const q = 'SELECT ss.*, u.id AS userId, name FROM skill_set AS ss JOIN users AS u ON u.id = ss.userid WHERE u.id = ?';
 
     db.query(q, [userid], (err, data) => {
       if (err) return res.status(500).json(err);
@@ -53,7 +53,7 @@ export const addSkill = (req, res) => {
       }
 
       // Fetch the updated skills data
-      const fetchQuery = 'SELECT ss.*, u.id AS userId, name FROM skill_set AS ss JOIN users AS u WHERE u.id = ?';
+      const fetchQuery = 'SELECT ss.*, u.id AS userId, name FROM skill_set AS ss JOIN users AS u ON u.id = ss.userid WHERE u.id = ?';
       const fetchData = await db.query(fetchQuery, [userId]);
 
       console.log("Fetched skills data after insertion:", fetchData);

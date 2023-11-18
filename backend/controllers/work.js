@@ -63,7 +63,9 @@ export const getWorkExperiences = (req, res) => {
 
     const userid = userInfo.id;
 
-    const q = 'SELECT wk.*, u.id AS userId, name FROM work AS wk JOIN users AS u WHERE u.id = ?';
+    console.log("madarchod" + userid);
+    
+    const q = 'SELECT wk.*, u.id AS userId, name FROM work AS wk JOIN users AS u ON u.id = wk.userid WHERE u.id = ?';
 
     db.query(q, [userid], (err, data) => {
       if (err) return res.status(500).json(err);

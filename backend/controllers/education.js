@@ -63,7 +63,7 @@ export const getEducations = (req, res) => {
 
     const userid = userInfo.id;
 
-    const q = 'SELECT ed.*, u.id AS userId, name FROM education AS ed JOIN users AS u WHERE u.id = ?';
+    const q = 'SELECT ed.*, u.id AS userId, name FROM education AS ed JOIN users AS u ON u.id = ed.userid WHERE u.id = ?';
 
     db.query(q, [userid], (err, data) => {
       if (err) return res.status(500).json(err);
