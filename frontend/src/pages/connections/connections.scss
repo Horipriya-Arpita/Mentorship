@@ -18,7 +18,7 @@
         align-items: center;
         justify-content: center; /* Center the box horizontally */
         width: 500px; /* Set the initial width to 3 times larger */
-        height: 150px;
+        height: 250px;
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
@@ -45,7 +45,7 @@
   
           p {
             font-size: medium;
-            margin: 0;
+            margin: 5px;
             color: #fff; /* Light grey text color */
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
           }

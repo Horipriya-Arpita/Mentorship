@@ -17,7 +17,7 @@
         display: flex;
         flex-direction: column; /* Updated to column layout */
         width: 700px; /* Adjust the width as needed */
-        height: 500px; /* Adjust the height as needed */
+        height: 600px; /* Adjust the height as needed */
         padding: 20px;
         border: 1px solid #ccc;
         border-radius: 5px;
@@ -33,7 +33,7 @@
   
           p {
             font-size: medium;
-            margin: 0;
+            margin: 5px;
             color: #fff; /* Light grey text color */
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
           }
