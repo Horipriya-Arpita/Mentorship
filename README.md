@@ -18,10 +18,10 @@ The application is built with React for the frontend, Node.js with Express.js fo
 
 ### 1. Clone the repository:
    
-    ```
-    git clone https://github.com/your-username/mentorship.git
-    cd mentorship 
-    ```
+ ```
+ git clone https://github.com/your-username/mentorship.git
+ cd mentorship 
+ ```
 ### 2. Backend Setup:
    
   Navigate to the backend directory and install the required dependencies:    
